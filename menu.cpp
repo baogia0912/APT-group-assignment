@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "subMenuForGuest.cpp";
 using namespace std;
 
 void menu() {
@@ -20,6 +21,8 @@ void menu() {
 
             }
             
-        case 2: logInAsGuest();
+        case 2: // Loginasguet()
+        //If want to log in as member, turn to input for user member.
+        // If not agree, continue view as guest.
     }
 }
