@@ -14,6 +14,7 @@ void menu() {
         case 1: 
             cout << "Enter username: ";
             cin >> username;
+            
             cout << "Enter password: ";
             cin >> password;
 
