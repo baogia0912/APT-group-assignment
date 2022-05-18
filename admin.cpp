@@ -1,21 +1,14 @@
 
 
 #include <iostream>
-#include "member.cpp"
+#include "account.cpp"
+#include "functions.cpp"
 using namespace std;
 
-
-
-class Admin : public Member {
-    private :
-
-
-    public:
-        Admin():Member(){};
-        Admin (string username , string password):Member(username,password){}
-
-
-        
-
-
+class Admin : public Account
+{
+private:
+public:
+    Admin(){};
+    Admin(string username, string password) : Account(username, password){};
 };
