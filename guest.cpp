@@ -1,31 +1,28 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
+#include <member.cpp>
+#include <vector>
+class guest
+{
+private:
+public:
+    guest(){};
 
-class guest{
-
-    private:
-    string userName;
-    string password;
-    
-    public:
-    guest(){}
-
-    guest(string userName, string password){
-        this->userName=userName;
-        this->password=password;
+    Member signUp()
+    {
+        string userName, passWord;
+        cout << "Enter your username: " << endl;
+        cin >> userName;
+        cout << "Enter your password: " << endl;
+        cin >> passWord;
+        cout << "Registration Completed. " << endl;
+        Member *acc = new Member(userName, passWord);
+        return *acc;
     }
 
-    void logInAsGuest(){
-        cout<<"Enter your username:";
-        cin>>this->userName;
-        cout<<"Enter your password:";
-        cin>>this->password;
-        cout<<"Registration Completed.";
-    }
-    void show_infor(){
-        cout<<"Username: "<<userName
-            <<" "
-            <<"Password: "<<password<<endl;
+    void viewLimitedHouse(vector<House>houseList)
+    {
+        
     }
 };

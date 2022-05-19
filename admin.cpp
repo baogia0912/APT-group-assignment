@@ -1,13 +1,21 @@
 
 
 #include <iostream>
-#include "member.cpp"
+#include "account.cpp"
 using namespace std;
 
-class Admin : public Member
-{
+class Admin {
 private:
+    Account *account;
 public:
     Admin(){};
-    Admin(string username, string password) : Member(username, password){};
+    Admin(string username, string password){
+        this->account = new Account(username,password);
+    };
+
+    Account getAccount () {
+        return *account;
+    }
 };
+
+

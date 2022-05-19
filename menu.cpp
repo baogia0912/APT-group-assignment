@@ -3,6 +3,7 @@
 #include "guestSubMenu.cpp"
 using namespace std;
 
+
 void menu() {
     int option;
     string username, password;
@@ -26,4 +27,5 @@ void menu() {
         //If want to log in as member, turn to input for user member.
         // If not agree, continue view as guest.
     }
+
 }

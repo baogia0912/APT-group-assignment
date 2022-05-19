@@ -1,10 +1,10 @@
 #include <iostream>
-// #include "account.cpp"
+#include <vector>
 using namespace std;
 
 class House {
     private:
-
+        vector<Rating*> houseRating;
     public:
         string location;
         string description;
@@ -28,4 +28,5 @@ class House {
                 sum += scoreRating[i];
             }
         }
+    friend class Member;
 };
