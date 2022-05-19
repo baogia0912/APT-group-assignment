@@ -58,7 +58,7 @@ int main (){
     cout << "End date: " << endDay << "/" << endMonth << "/" << endYear << endl;
     
     
-    Period start = {startDay, startMonth, startYear};
+    Period start (startDay, startMonth, startYear;
     Period end = {endDay , endMonth, endYear};
    
 }
