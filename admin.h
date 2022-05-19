@@ -4,7 +4,6 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
-
 class Admin
 {
 private:
@@ -16,13 +15,15 @@ public:
 
     Account getAccount();
 
-    void viewAllMember(vector<Member> memberList);
+    void viewAllMember(vector<Account *> memberList);
 
-    void viewAllHouse(vector<House> houseList);
+    void viewAllHouse(vector<House *> houseList);
+
+    double getHouseRating(vector<Rating *> houseRating);
+
+    double getOccupantRating(vector<Rating *> occupantRating);
+
+    void getRequest(vector<Request *> requestList);
 };
-
-
-
-
 
 #endif
