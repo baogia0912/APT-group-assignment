@@ -1,18 +1,10 @@
 #include <iostream>
+#include "rating.h"
 using namespace std;
-class Rating{
-    private:
-        double rating;
-    public:
-        Rating(){
 
-        }
-
-        Rating(double rating){
-            this->rating = rating;
-        }
-
-        void getHouseRating(double rating);
-        friend class House;
-
-};
+Rating::Rating(){};
+Rating::Rating(string comment, double rating)
+{
+    this->comment = comment;
+    this->rating = rating;
+}

@@ -1,32 +1,27 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+#include "request.h"
+#include "rating.cpp"
+#include "period.h"
+#include "house.h"
 
-class House {
-    private:
-        string houseID;
-        string adress;
-        string description;
-        vector<double>availablePeriods;
-        vector<double>houseRating;
-        
-    public:
-        string occupierID;
-        double minOccupierRating;
-        House(){
+House::House()
+{
+}
 
-        }
+House::House(string ID, string address, string occupierID, string description, vector<Rating *> houseRating, vector<Rating> occupierRating,
+             vector<Period> availablePeriods)
+{
+    this->houseID = ID;
+    this->address = address;
+    this->occupierID = occupierID;
+    this->description = description;
+    this->houseRating = houseRating;
+    this->minOccupierRating = occupierRating;
+    this->availablePeriods = availablePeriods;
+}
 
-        House(string ID, string location, string description, vector<double>houseRating, vector<double>occupierRating){
-            this->houseID = houseID;
-            this->adress = adress;
-            this->description = description;
-            this->houseRating = houseRating;
-            this->minOccupierRating = minOccupierRating;
-        }
-
-        friend void Rating::getHouseRating(double rating){
-            houseRating.pushback(rating);
-        }
-        
-};
+void House::getHouseRating(Rating &rating)
+{
+}

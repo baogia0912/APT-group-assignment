@@ -57,8 +57,8 @@ int main (){
     cout << "Start date: " << startDay << "/" << startMonth << "/" << startYear << endl;
     cout << "End date: " << endDay << "/" << endMonth << "/" << endYear << endl;
     
-    string start = to_string(startDay) + "/" + to_string(startMonth) + "/" + to_string(startYear);
-    string end = to_string(endDay) + "/" + to_string(endMonth) + "/" + to_string(endYear);
-    Period period;
-    period.setDate(start, end);
+    
+    Period start = {startDay, startMonth, startYear};
+    Period end = {endDay , endMonth, endYear};
+   
 }
