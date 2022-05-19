@@ -10,12 +10,12 @@ using namespace std;
     Admin::Admin(){};
     Admin::Admin(string username, string password){
         this->account = new Account(username, password);
-    };
+    }
 
     Account Admin::getAccount()
     {
         return *account;
-    };
+    }
 
     void Admin::viewAllMember(vector<Member> memberList)
     {

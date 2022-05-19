@@ -28,6 +28,5 @@ void Guest::viewLimitedHouse(vector<House> houseList)
     }
 }
 
-int main() {
-    cout << "hello";
-}
+
+
