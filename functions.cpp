@@ -7,8 +7,7 @@ using namespace std;
 #include <fstream>
 #include <string>
 
-void checkAccount()
-
+void checkAccount()Z
 {
     Account *acc;
     vector<Account *> memberList;
@@ -39,18 +38,12 @@ void checkAccount()
             cout << password << endl;
             cout << role << endl;
         }
+        acc = new Member(userName,password);
+        memberList.push_back(acc);
 
         myfile.close();
     }
 
     else
         cout << "Unable to open file";
-}
-
-int main()
-{   
-    Account * acc = new Member();
-
-    // acc = new Member ("dwddw","dwdwdw");        
-    // checkAccount();
 }
