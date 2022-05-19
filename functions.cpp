@@ -6,8 +6,10 @@ using namespace std;
 #include <vector>
 #include <fstream>
 #include <string>
+#include <json/value.h>
 
-void checkAccount()Z
+
+void getAllData()
 {
     Account *acc;
     vector<Account *> memberList;
