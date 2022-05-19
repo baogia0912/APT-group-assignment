@@ -3,7 +3,7 @@
 using namespace std;
 
 class guest{
-    // try to use gitrge
+    
     private:
     string userName;
     string password;
