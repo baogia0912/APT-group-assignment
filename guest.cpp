@@ -9,8 +9,21 @@ private:
 public:
     guest(){};
 
+    private:
+    string userName;
+    string password;
+    
+    public:
+    guest(){}
+
+    guest(string userName, string password){
+        this->userName=userName;
+        this->password=password;
+    }
+
     Member signUp()
     {
+        Account *acc;
         string userName, passWord;
         cout << "Enter your username: " << endl;
         cin >> userName;
@@ -21,6 +34,8 @@ public:
         return *acc;
     }
 
+
+  
     void viewLimitedHouse(vector<House>houseList)
     {
         
