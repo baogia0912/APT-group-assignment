@@ -1,14 +1,13 @@
 
 
 #include <iostream>
-#include "account.cpp"
-#include "functions.cpp"
+#include "member.cpp"
 using namespace std;
 
-class Admin : public Account
+class Admin : public Member
 {
 private:
 public:
     Admin(){};
-    Admin(string username, string password) : Account(username, password){};
+    Admin(string username, string password) : Member(username, password){};
 };

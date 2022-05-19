@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-#include "account.cpp"
+// #include "account.cpp"
 // #include "member.cpp"
-// #include "admin.cpp"
+#include "admin.cpp"
 #include <vector>
 #include <fstream>
 #include <string>
@@ -49,8 +49,8 @@ void checkAccount()
 
 int main()
 {   
-    Account * acc;
-    acc = new  ;
-        
+    Account * acc = new Member();
+
+    // acc = new Member ("dwddw","dwdwdw");        
     // checkAccount();
 }

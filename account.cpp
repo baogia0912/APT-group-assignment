@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 // #include "member.cpp"
+// #include "admin.cpp"
+// #include "functions.cpp"
 class Account
 {
 private:
@@ -30,6 +32,6 @@ public:
             return false;
         }
     }
-    // friend class Admin;
-    // friend class Member;
+    friend class Admin;
+    friend class Member;
 };
