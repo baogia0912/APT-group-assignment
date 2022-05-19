@@ -1,44 +1,32 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
-#include <member.cpp>
+#include "member.h"
 #include <vector>
-class guest
+#include "guest.h"
+Guest::Guest(){};
+
+Member Guest::signUp()
 {
-private:
-public:
-    guest(){};
+    string username, password;
+    cout << "Enter your username: " << endl;
+    cin >> username;
+    cout << "Enter your password: " << endl;
+    cin >> password;
+    cout << "Registration Completed. " << endl;
+    Member acc = Member(username, password);
+    return acc;
+}
 
-    private:
-    string userName;
-    string password;
-    
-    public:
-    guest(){}
-
-    guest(string userName, string password);
-        this->userName=userName;
-        this->password=password;
-    }
-
-    Member signUp()
+void Guest::viewLimitedHouse(vector<House> houseList)
+{
+    for (int i = 0; i < houseList.size(); i++)
     {
-        Account *acc;
-        string userName, passWord;
-        cout << "Enter your username: " << endl;
-        cin >> userName;
-        cout << "Enter your password: " << endl;
-        cin >> passWord;
-        cout << "Registration Completed. " << endl;
-        Member *acc = new Member(userName, passWord);
-        return *acc;
+        cout << "House id : " << houseList[i].houseID << endl;
+        cout << "House address : " << houseList[i].address << endl;
+        cout << "Description : " << houseList[i].description << endl;
+        cout << endl;
     }
-    void viewLimitedHouse(vector<House>houseList)
-    {
-        
-    }
-    void guestInfo(){
-        cout<<"Username: "<<userName<<endl;
-    }
-};
+}
+
+
 
