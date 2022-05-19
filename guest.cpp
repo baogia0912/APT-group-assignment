@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "member.h"
+#include "member.cpp"
 #include <vector>
 #include "guest.h"
 Guest::Guest(){};

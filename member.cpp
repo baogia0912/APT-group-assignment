@@ -28,3 +28,4 @@ void Member::createRating(House *house)
     Rating *rate = new Rating(comment, point);
     house->houseRating.push_back(rate);
 }
+
