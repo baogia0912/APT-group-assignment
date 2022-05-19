@@ -2,48 +2,30 @@
 #include <vector>
 using namespace std;
 
-class House;
-
-class Member{
-    private:
-        double rating;
-    public:
-        Member(){
-
-        }
-
-        Member(double rating){
-            this->rating = rating;
-        }
-
-        void getHouseRating(double rating);
-        friend class House;
-
-};
-
-
 class House {
     private:
         string houseID;
-        string occupierID;
-        string location;
+        string adress;
         string description;
+        vector<double>availablePeriods;
         vector<double>houseRating;
-        vector<double>occupierRating;
+        
     public:
+        string occupierID;
+        double minOccupierRating;
         House(){
 
         }
 
         House(string ID, string location, string description, vector<double>houseRating, vector<double>occupierRating){
-            this->ID = ID;
-            this->location = location;
+            this->houseID = houseID;
+            this->adress = adress;
             this->description = description;
             this->houseRating = houseRating;
-            this->occupierRating = occupierRating;
+            this->minOccupierRating = minOccupierRating;
         }
 
-        friend void Member::getHouseRating(double rating){
+        friend void Rating::getHouseRating(double rating){
             houseRating.pushback(rating);
         }
         

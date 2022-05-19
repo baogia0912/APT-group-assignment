@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "subMenuForGuest.cpp";
+#include "guestSubMenu.cpp"
 using namespace std;
 
 void menu() {
@@ -11,16 +11,16 @@ void menu() {
     cin >> option;
 
     switch (option) {
-        case 1: 
+        case 1:
             cout << "Enter username: ";
             cin >> username;
             
             cout << "Enter password: ";
             cin >> password;
 
-            if (logIn(username, password)) {
+            // if (logIn(username, password)) {
 
-            }
+            // }
             
         case 2: // Loginasguet()
         //If want to log in as member, turn to input for user member.

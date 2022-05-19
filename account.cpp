@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-// #include "member.cpp"
+#include "house.cpp"
 // #include "admin.cpp"
 // #include "functions.cpp"
 class Account
@@ -9,6 +9,7 @@ private:
     string password;
     string username;
     string role = "member";
+    
 
 public:
     Account(){};
@@ -18,6 +19,12 @@ public:
         this->password = password;
         this->role;
     };
+    Account(string username, string password, House house ) {
+
+    }
+
+
+
 
     bool verifyPass(string password)
     {
