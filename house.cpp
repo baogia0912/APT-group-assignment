@@ -1,30 +1,50 @@
 #include <iostream>
+#include <vector>
 using namespace std;
+
+class House;
+
+class Member{
+    private:
+        double rating;
+    public:
+        Member(){
+
+        }
+
+        Member(double rating){
+            this->rating = rating;
+        }
+
+        void getHouseRating(double rating);
+        friend class House;
+
+};
+
 
 class House {
     private:
-
-    public:
+        string houseID;
+        string occupierID;
         string location;
         string description;
-        float scoreRating[];
-
+        vector<double>houseRating;
+        vector<double>occupierRating;
+    public:
         House(){
 
         }
 
-        House(string location, string description, float scoreRating[]){
+        House(string ID, string location, string description, vector<double>houseRating, vector<double>occupierRating){
+            this->ID = ID;
             this->location = location;
             this->description = description;
-            for(int i = 0; i < sizeof(scoreRating); i++){
-                this->scoreRating[i] = scoreRating[i];
-            }
+            this->houseRating = houseRating;
+            this->occupierRating = occupierRating;
+        }
+
+        friend void Member::getHouseRating(double rating){
+            houseRating.pushback(rating);
         }
         
-        void houseRatingScore (float scoreRating[]){
-            float sum = 0.0;
-            for(int i = 0; i < sizeof(scoreRating); i++){
-                sum += scoreRating[i];
-            }
-        }
 };
