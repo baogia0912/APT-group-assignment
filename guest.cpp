@@ -16,7 +16,7 @@ public:
     public:
     guest(){}
 
-    guest(string userName, string password){
+    guest(string userName, string password);
         this->userName=userName;
         this->password=password;
     }
@@ -33,11 +33,12 @@ public:
         Member *acc = new Member(userName, passWord);
         return *acc;
     }
-
-
-  
     void viewLimitedHouse(vector<House>houseList)
     {
         
     }
+    void guestInfo(){
+        cout<<"Username: "<<userName<<endl;
+    }
 };
+
