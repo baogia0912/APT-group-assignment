@@ -3,7 +3,7 @@
 using namespace std;
 
 class guest{
-
+    
     private:
     string userName;
     string password;
