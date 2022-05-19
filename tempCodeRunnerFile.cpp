@@ -1,3 +1,1 @@
-
-    // vector<Account *> memberList;
-    // vector<Account *> adminList;
+    // viewHouseOccupy();
