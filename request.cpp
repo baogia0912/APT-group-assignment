@@ -1,10 +1,13 @@
 #include <iostream>
 using namespace std;
+#include "request.h"
+#include "period.h"
 
-class Request{
-    private:
-        double period;
-        string requesterID;
-    public:
-
-};
+Request::Request()
+{
+}
+Request::Request(Period period, string requesterID)
+{
+    this->period = period;
+    this->requesterID = requesterID;
+}
