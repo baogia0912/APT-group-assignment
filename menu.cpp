@@ -1,31 +1,56 @@
 #include <iostream>
 #include <string>
 #include "guestSubMenu.cpp"
+#include "memberSubMenu.cpp"
+#include "adminSubMenu.cpp"
+#include "logIn.cpp"
 using namespace std;
+#include <vector>
+#include "member.cpp"
+#include "admin.cpp"
 
+class Menu
+{
+private:
+    vector<Member *> memberList;
+    vector<Admin *> adminList;
+    vector<House *> houseList;
 
-void menu() {
-    int option;
-    string username, password;
+    void menu() {
+        int option;
+        vector<Member> members;
+        vector<Admin> admins;
+        
 
-    cout << "This is the menu" << endl;
-    cin >> option;
+        cout << "===================================================== \n";
+        cout << "              \t\tMENU \n";
+        cout << "===================================================== \n";
+        cout << "                Enter your choice (1-5)\n";
+        cout <<"1: Log in as a Guest";
+        cout <<"2: Log in as an Member";
+        cout <<"3: Log in as an Admin";
+        cout <<"Press any key to exit the program."<<endl;
+        cin >> option;
 
-    switch (option) {
+        switch (option)
+        {
         case 1:
-            cout << "Enter username: ";
-            cin >> username;
-            
-            cout << "Enter password: ";
-            cin >> password;
-
-            // if (logIn(username, password)) {
-
-            // }
-            
-        case 2: // Loginasguet()
-        //If want to log in as member, turn to input for user member.
-        // If not agree, continue view as guest.
+            if (logInAsGuest()) menuForGuest();
+            break;
+        case 2:
+            if (logInAsMember(members))menuForMember();
+            break;
+        case 3:
+            if (logInAsAdmin(admins))menuForAdmin();
+            break;
+        default:
+            break;
+        }
     }
+};
 
+
+
+
+int main(){
 }

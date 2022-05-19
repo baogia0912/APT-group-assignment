@@ -16,14 +16,14 @@ Option 5: View the house occupy.
 
 */
 
-void menuForGuest()
+void menuForMember()
 {
     int option;
     {
         cout << "===================================================== \n";
         cout << "              \t\tMENU \n";
         cout << "===================================================== \n";
-        cout <<"                Enter your choice (1-5)\n";
+        cout << "                Enter your choice (1-5)\n";
         cout << endl;
         cout << "1: Viewing your Information.\n"
              << "2: Listing the Available house for being occupied.\n"
@@ -43,9 +43,9 @@ void menuForGuest()
             // Viewing the Available house
             viewAvailableHouse();
             int optionCase3;
-            cout <<"Enter your choice(1-2)"<<endl;
-            cout <<"1: View the house and request to occupy.\n";
-            cout <<"2: View the house only."<<endl;
+            cout << "Enter your choice(1-2)" << endl;
+            cout << "1: View the house and request to occupy.\n";
+            cout << "2: View the house only." << endl;
             cin >> optionCase3;
             switch (optionCase3)
             {
@@ -60,17 +60,17 @@ void menuForGuest()
         case 4:
             viewListedHouse();
             int optionCase4;
-            cout <<"Enter your choice(1-2)";
-            cout <<"1: View the requets and accept.";
-            cout <<"2: View the requets only.";
-            cin >>optionCase4;
+            cout << "Enter your choice(1-2)";
+            cout << "1: View the requets and accept.";
+            cout << "2: View the requets only.";
+            cin >> optionCase4;
             switch (optionCase4)
             {
             case 1:
-                
+
                 break;
             case 2:
-                
+
                 break;
             default:
                 break;
@@ -79,14 +79,14 @@ void menuForGuest()
         case 5:
             viewHouseOccupy();
             int optionCase5;
-            cout <<"Enter your choice(1-2)";
-            cout <<"1: Score the house occupied.";
-            cout <<"2: Comment the house occupied.";
-            cin >>optionCase5;
+            cout << "Enter your choice(1-2)";
+            cout << "1: Score the house occupied.";
+            cout << "2: Comment the house occupied.";
+            cin >> optionCase5;
             switch (optionCase5)
             {
             case 1:
-                
+
                 break;
             case 2:
 
@@ -102,6 +102,7 @@ void menuForGuest()
     }
 }
 // menuForGuest();
-int main(){
-    menuForGuest();
+int main()
+{
+    menuForMember();
 }

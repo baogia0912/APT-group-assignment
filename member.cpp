@@ -3,34 +3,28 @@
 using namespace std;
 #include "rating.cpp"
 #include <vector>
-class Member
+#include "member.h"
+#include "house.h"
+
+Member::Member(){};
+Member::Member(string username, string password)
 {
+    this->acc = new Account(username, password);
+}
 
-private:
-    Account *acc;
+Account Member::getAccount()
+{
+    return *acc;
+}
 
-
-public:
-    Member(){};
-    Member(string username, string password)
-    {
-        this->acc = new Account(username, password);
-    }
-
-    Account getAccount()
-    {
-        return *acc;
-    }
-
-    void createRating(House house)
-    {
-        string comment;
-        double point;
-        cout << "Please enter you comment";
-        cin >> comment;
-        cout << "Rating ";
-        cin >> point;
-        Rating *rate = new Rating(comment, point);
-        house.houseRating.push_back(rate);
-    }
-};
+void Member::createRating(House house)
+{
+    string comment;
+    double point;
+    cout << "Please enter you comment";
+    cin >> comment;
+    cout << "Rating ";
+    cin >> point;
+    Rating *rate = new Rating(comment, point);
+    house.houseRating.push_back(rate);
+}
