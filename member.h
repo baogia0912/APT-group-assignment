@@ -33,16 +33,12 @@ private:
 
 public:
     Member();
-    Member( string username, string password);
+    Member(string username, string password);
+    Member(int id, string username, string password);
     Account getAccount();
     int getID();
     
     void createRating(House *house);
-
-void generateID(vector<Member> members);
-
-
-
 };
 
 #endif

@@ -6,9 +6,6 @@ using json = nlohmann::json;
 #include "account.h"
 
 void getAllData(vector<Admin>* adminList, vector<Member>* memberList) {
-    // Account *acc;
-    // vector<Account *> memberList;
-    // vector<Account *> adminList;
     string data, userName, password, role;
     
     json members, admins;
@@ -27,19 +24,11 @@ void getAllData(vector<Admin>* adminList, vector<Member>* memberList) {
 }
 
 void writeAllData(vector<Admin> adminList, vector<Member> memberList) {
-    // Account *acc;
-    // vector<Account *> memberList;
-    // vector<Account *> adminList;
     string data, userName, password, role;
     
     json members, admins;
     ofstream member_file("members1.json", ofstream::binary);
-    // ifstream admin_file("admins.json", ifstream::binary);
-    // admin_file >> admins;
 
-    // for (auto admin: admins) {
-        // adminList->push_back(Admin(admin["id"], admin["name"], admin["password"]));
-    // }
     for (int i = 0; i < memberList.size(); i++) {
         members[i]["id"] = memberList[i].getID();
         members[i]["name"] = memberList[i].getAccount().username;

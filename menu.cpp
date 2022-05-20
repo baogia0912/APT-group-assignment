@@ -1,31 +1,29 @@
-#include <iostream>
-#include <string>
 #include "guestSubMenu.cpp"
 #include "memberSubMenu.cpp"
 #include "adminSubMenu.cpp"
 #include "logIn.cpp"
-using namespace std;
-#include <vector>
-#include "member.cpp"
-#include "admin.cpp"
 
-class Menu
-{
-private:
-    vector<Member *> memberList;
-    vector<Admin *> adminList;
-    vector<House *> houseList;
 
-    void menu() {
-        int option;
-        vector<Member*> members;
-        vector<Admin*> admins;
-        
 
+void menu() {
+    int option;
+    vector<Member*> members;
+    vector<Admin*> admins;
+    vector<House*> houses;
+
+
+    int highestID = 0;
+    for (Member *mem : members) {
+        if (mem->getID() > highestID) highestID = mem->getID();
+    }
+    ++highestID;
+    #define NEXTMEMBERID highestID
+    
+    while (1) {
         cout << "===================================================== \n";
         cout << "              \t\tMENU \n";
         cout << "===================================================== \n";
-        cout << "                Enter your choice (1-5)\n";
+        cout << "                Enter your choice (1-3)\n";
         cout <<"1: Log in as a Guest";
         cout <<"2: Log in as an Member";
         cout <<"3: Log in as an Admin";
@@ -35,7 +33,7 @@ private:
         switch (option)
         {
         case 1:
-            if (logInAsGuest()) menuForGuest();
+            menuForGuest(logInAsGuest(), members);
             break;
         case 2:
             if (logInAsMember(members))menuForMember();
@@ -47,10 +45,4 @@ private:
             break;
         }
     }
-};
-
-
-
-
-int main(){
 }

@@ -8,7 +8,7 @@ Admin::Admin(){}
 vector<string> passwordAdminList;
 vector<string> usernameAdminList;
 
-Admin::Admin(string id, string username, string password){
+Admin::Admin(int id, string username, string password){
     this->id = id;
     this->account = new Account(username, password);
 }
@@ -18,25 +18,21 @@ Account Admin::getAccount()
     return *account;
 }
 
-string Admin::getID(){
+int Admin::getID(){
     return this->id;
 }
-void Admin::viewAllMember(vector<Account *> memberList)
+void Admin::viewAllMember(vector<Account *> members)
 {
-    for (int i = 0; i < memberList.size(); i++)
-    {
-        cout << "Member" + i + 1 << " : " << memberList[i]->username << endl;
-    }
+
 }
 
-void Admin::viewAllHouse(vector<House *> houseList)
+void Admin::viewAllHouse(vector<House *> houses)
 {
-    for (int i = 0; i < houseList.size(); i++)
-    {
-        cout << "House ID : " << houseList[i]->houseID << endl;
-        cout << "House Address : " << houseList[i]->address << endl;
-        cout << "House description : " << houseList[i]->description << endl;
-        cout << "OccupantID : " << houseList[i]->occupantID << endl;
+    for (House *house : houses) {
+        cout << "House ID : " << house->houseID << endl;
+        cout << "House Address : " << house->address << endl;
+        cout << "House description : " << house->description << endl;
+        cout << "OccupantID : " << house->occupantID << endl;
         for (int j = 0; j < houseList[i]->availablePeriods.size(); j++)
         {
             cout << "P " + j + 1 << ":" << houseList[i]->availablePeriods[j] << endl;

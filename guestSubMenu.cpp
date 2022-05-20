@@ -1,15 +1,8 @@
 #include <iostream>
 using namespace std;
+#include "guest.h"
 
-// Menu for guest;
-/*
-Option 1: Guest require to be a member;
-
-Option 2: Guest continue viewing house design.
-*/
-
-void menuForGuest()
-{
+void menuForGuest(Guest* guest, vector<Member*> members) {
     int option;
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";
@@ -27,7 +20,7 @@ void menuForGuest()
     switch (option)
     {
     case 1:
-        registerMember();
+        if (guest->signUp(members) != nullptr) return;
         break;
     case 2:
         viewAllHouses();

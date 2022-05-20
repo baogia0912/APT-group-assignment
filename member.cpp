@@ -8,6 +8,14 @@ vector<string> usernameMemberList;
 Member::Member(){};
 Member::Member(string username, string password)
 {
+    #ifdef NEXTMEMBERID
+    this->id = NEXTMEMBERID++;
+    #endif
+    this->acc = new Account(username, password);
+}
+Member::Member(int id, string username, string password)
+{
+    this->id = id;
     this->acc = new Account(username, password);
 }
 
@@ -30,13 +38,4 @@ void Member::createRating(House *house)
     cin >> point;
     Rating *rate = new Rating(comment, point);
     house->houseRating.push_back(rate);
-}
-
-
-void Member::generateID(vector<Member> members) {
-    int highestID = 0;
-    for (Member mem : members) {
-        if (mem.getID() > highestID) highestID = mem.getID();
-    }
-    this->id = ++highestID;
 }
