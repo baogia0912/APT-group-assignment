@@ -3,8 +3,6 @@
 #include "account.h"
 #include "house.h"
 
-
-
 /*
 5. A member can list his/her house available to be occupied (with consuming points, and 
 minimum required occupier rating), and unlist it if wanted. 
@@ -17,9 +15,7 @@ with his current credit points and rating score).
 11. A member can rate each of his/her occupied houses (score and comment). 
 12. A member can rate each of the occupiers who had used his/her house (score and 
 comment). 
- */
-
-
+*/
 class Member
 {
 
@@ -27,7 +23,6 @@ private:
     int id;
     Account *acc;
     vector<House *> houses;
-    vector<Request> requests;
     vector<Rating *> ratings;
     int credits;
 
@@ -37,7 +32,8 @@ public:
     Member(int id, string username, string password);
     Account getAccount();
     int getID();
-    
+
+    void createRequest();
     void createRating(House *house);
 };
 

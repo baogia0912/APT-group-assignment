@@ -8,6 +8,7 @@ Admin::Admin(){}
 vector<string> passwordAdminList;
 vector<string> usernameAdminList;
 
+
 Admin::Admin(int id, string username, string password){
     this->id = id;
     this->account = new Account(username, password);
@@ -33,12 +34,12 @@ void Admin::viewAllHouse(vector<House *> houses)
         cout << "House Address : " << house->address << endl;
         cout << "House description : " << house->description << endl;
         cout << "OccupantID : " << house->occupantID << endl;
-        for (int j = 0; j < houseList[i]->availablePeriods.size(); j++)
+        for (int j = 0; j < houses[j]->availablePeriods.size(); j++)
         {
-            cout << "P " + j + 1 << ":" << houseList[i]->availablePeriods[j] << endl;
+            cout << "P " + j + 1 << ":" << houses[j]->availablePeriods[j] << endl;
         }
-        cout << "Total rating : " << Admin::getHouseRating(houseList[i]->houseRating);
-        cout << "Total occupant rating : " << Admin::getOccupantRating(houseList[i]->houseRating);
+        cout << "Total rating : " << Admin::getHouseRating(house->houseRating);
+        cout << "Total occupant rating : " << Admin::getOccupantRating(house->houseRating);
     }
 }
 

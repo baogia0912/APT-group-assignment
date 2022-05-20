@@ -3,14 +3,17 @@
 #include "member.h"
 #include <vector>
 
-vector<string> passwordMemberList;
-vector<string> usernameMemberList;
+
+vector<Member *> members;
+vector<Admin *> admins;
+vector<House *> houses;
+
 Member::Member(){};
 Member::Member(string username, string password)
 {
-    #ifdef NEXTMEMBERID
+#ifdef NEXTMEMBERID
     this->id = NEXTMEMBERID++;
-    #endif
+#endif
     this->acc = new Account(username, password);
 }
 Member::Member(int id, string username, string password)
@@ -24,9 +27,10 @@ Account Member::getAccount()
     return *acc;
 }
 
-int Member::getID(){
+int Member::getID()
+{
     return id;
-    }
+}
 
 void Member::createRating(House *house)
 {
@@ -38,4 +42,9 @@ void Member::createRating(House *house)
     cin >> point;
     Rating *rate = new Rating(comment, point);
     house->houseRating.push_back(rate);
+}
+
+
+void createRequest() {
+    
 }

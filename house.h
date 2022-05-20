@@ -23,7 +23,7 @@ public:
     House(int houseID, string address, string occupantID, string description, double minOccupierRating,
         vector<Rating *> houseRating, vector<Rating*> occupierRating, vector<Request*> requests, vector<Period*> availablePeriods);
 
-    double getHouseRating();
+    double getHouseRating(Rating &rating);
     friend class Member;
     friend class Guest;
     friend class Admin;

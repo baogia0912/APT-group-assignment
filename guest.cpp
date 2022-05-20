@@ -8,8 +8,9 @@ Guest::Guest(){};
 vector<string> passwordGuestList;
 vector<string> usernameGuestList;
 
-Member* Guest::signUp(vector<Member*> members) {
-    Member* newMember;
+Member *Guest::signUp(vector<Member *> members)
+{
+    Member *newMember;
     string username;
     string password1;
     string password2;
@@ -18,7 +19,8 @@ Member* Guest::signUp(vector<Member*> members) {
 
     for (Member *mem : members)
     {
-        if (username == mem->getAccount().username) {
+        if (username == mem->getAccount().username)
+        {
             cout << "This username is already existed! Please try sign up again." << endl;
             return nullptr;
         }
@@ -30,7 +32,8 @@ Member* Guest::signUp(vector<Member*> members) {
     cout << "Re-enter password: " << endl;
     cin >> password2;
 
-    if (password1 != password2) {
+    if (password1 != password2)
+    {
         cout << "The 2 passwords you enter are different! Please try sign up again." << endl;
         return nullptr;
     }
@@ -49,6 +52,3 @@ void Guest::viewLimitedHouse(vector<House> houseList)
         cout << endl;
     }
 }
-
-
-

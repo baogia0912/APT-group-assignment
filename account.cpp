@@ -14,4 +14,8 @@ bool Account::verifyPass(string password)
 {
     return this->password == password;
 }
+
+
+
+
 #endif

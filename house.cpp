@@ -17,6 +17,6 @@ House::House(int houseID, string address, string occupantID, string description,
     this->requests = requests;
 }
 
-void House::getHouseRating(Rating &rating)
+double House::getHouseRating(Rating &rating)
 {
 }

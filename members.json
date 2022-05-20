@@ -1,44 +1,44 @@
 [
     {
-        "id": "0001",
+        "id": 1,
         "name": "bao",
         "password": "12345",
         "houseList": [
             {
-                "house_id": "0001"
+                "house_id": "1"
 
             }
         ]
     },
     {
-        "id": "0002",
+        "id": 2,
         "name": "khoa",
         "password": "12345",
         "houseList": [
             {
-                "house_id": "0002"
+                "house_id": "2"
 
             }
         ]
     },
     {
-        "id": "0003",
+        "id":3,
         "name": "kiet",
         "password": "12345",
         "houseList": [
             {
-                "house_id": "0003"
+                "house_id": "3"
 
             }
         ]
     },
     {
-        "id": "0004",
+        "id": 4,
         "name": "hoang",
         "password": "12345",
         "houseList": [
             {
-                "house_id": "0004"
+                "house_id": "4"
 
             }
         ]
