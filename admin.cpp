@@ -67,4 +67,3 @@ double Admin::getOccupantRating(vector<Rating *> occupantRating)
 void Admin::getRequest(vector<Request *> requestList){
 
 };
-
