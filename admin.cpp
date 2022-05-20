@@ -12,6 +12,10 @@ Account Admin::getAccount()
 {
     return *account;
 }
+
+string Admin::getID(){
+    return this->id;
+}
 void Admin::viewAllMember(vector<Account *> memberList)
 {
     for (int i = 0; i < memberList.size(); i++)

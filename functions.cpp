@@ -48,6 +48,17 @@ void writeAllData(vector<Admin> adminList, vector<Member> memberList) {
     member_file << members;
 }
 
+
+
+string nextAdminID (vector<Admin> admins) {
+    int highestID = 0;
+    for (Admin ad : admins) {
+        if (stoi(ad.getID()) > highestID) highestID = stoi(ad.getID());
+    }
+    return to_string(++highestID);
+}
+
+
 int main()
 {   
     vector<Admin> adminList;

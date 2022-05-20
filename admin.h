@@ -15,6 +15,8 @@ public:
 
     Account getAccount();
 
+    string getID();
+
     void viewAllMember(vector<Account *> memberList);
 
     void viewAllHouse(vector<House *> houseList);

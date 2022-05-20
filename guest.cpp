@@ -3,9 +3,10 @@ using namespace std;
 #include "member.cpp"
 #include <vector>
 #include "guest.h"
+#include "functions.cpp"
 Guest::Guest(){};
 
-Member Guest::signUp()
+Member Guest::signUp(vector<Member> members)
 {
     string username, password;
     cout << "Enter your username: " << endl;
@@ -13,8 +14,9 @@ Member Guest::signUp()
     cout << "Enter your password: " << endl;
     cin >> password;
     cout << "Registration Completed. " << endl;
-    Member acc = Member(username, password);
-    return acc;
+    Member *acc = new Member(username, password);
+    acc->generateID(members);
+    return *acc;
 }
 
 void Guest::viewLimitedHouse(vector<House> houseList)

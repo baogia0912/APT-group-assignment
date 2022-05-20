@@ -18,8 +18,8 @@ private:
 
     void menu() {
         int option;
-        vector<Member> members;
-        vector<Admin> admins;
+        vector<Member*> members;
+        vector<Admin*> admins;
         
 
         cout << "===================================================== \n";
