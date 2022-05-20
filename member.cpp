@@ -1,14 +1,11 @@
-#include <iostream>
 #include "account.cpp"
-using namespace std;
 #include "rating.cpp"
-#include <vector>
 #include "member.h"
-#include "house.h"
 
 Member::Member(){};
-Member::Member(string username, string password)
+Member::Member(string id, string username, string password)
 {
+    this->id = id;
     this->acc = new Account(username, password);
 }
 
@@ -17,7 +14,11 @@ Account Member::getAccount()
     return *acc;
 }
 
-void Member::createRating(House house)
+string Member::getID(){
+    return id;
+    }
+
+void Member::createRating(House *house)
 {
     string comment;
     double point;
@@ -26,5 +27,6 @@ void Member::createRating(House house)
     cout << "Rating ";
     cin >> point;
     Rating *rate = new Rating(comment, point);
-    house.houseRating.push_back(rate);
+    house->houseRating.push_back(rate);
 }
+
