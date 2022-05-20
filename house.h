@@ -7,24 +7,25 @@
 class House
 {
 private:
-    vector<Period> availablePeriods;
-    vector<Rating *> houseRating;
-    vector<Rating> minOccupierRating;
-    vector<Request *> requests;
+    vector<Period*> availablePeriods;//done
+    vector<Rating *> houseRating;//done
+    vector<Rating*> minOccupierRating;//done
+    vector<Request *> requests;//done
 
 public:
-    string address;
-    string houseID;
-    string description;
-    string occupierID;
+    string address;//done
+    string houseID;//done
+    string description;//done
+    string occupantID;//done
     House();
 
-    House(string ID, string address, string occupierID, string description, vector<Rating *> houseRating, vector<Rating> occupierRating,
-          vector<Period> availablePeriods);
+    House(string ID, string address, string occupantID, string description, vector<Rating *> houseRating, vector<Rating*> occupierRating,
+          vector<Period*> availablePeriods);
 
     void getHouseRating(Rating &rating);
     friend class Member;
     friend class Guest;
+    friend class Admin;
 };
 
 #endif

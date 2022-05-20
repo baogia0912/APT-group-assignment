@@ -18,7 +18,7 @@ string Member::getID(){
     return id;
     }
 
-void Member::createRating(House house)
+void Member::createRating(House *house)
 {
     string comment;
     double point;
@@ -27,5 +27,6 @@ void Member::createRating(House house)
     cout << "Rating ";
     cin >> point;
     Rating *rate = new Rating(comment, point);
-    house.houseRating.push_back(rate);
+    house->houseRating.push_back(rate);
 }
+

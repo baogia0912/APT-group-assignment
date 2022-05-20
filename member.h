@@ -8,6 +8,9 @@ class Member
 private:
     string id;
     Account *acc;
+    vector<House *> houses;
+    vector<Request> requests;
+    vector<Rating *> ratings;
 
 public:
     Member();
@@ -16,8 +19,7 @@ public:
     Account getAccount();
     string getID();
     
-    void createRating(House house);
-    friend void writeAllData(vector<Admin> adminList, vector<Member> memberList);
+    void createRating(House *house);
 };
 
 #endif

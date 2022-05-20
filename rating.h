@@ -1,3 +1,4 @@
+
 #ifndef RATING_H
 #define RATING_H
 using namespace std;
@@ -12,5 +13,10 @@ private:
 public:
     Rating();
     Rating(string comment, double rating);
+    friend class Admin;
 };
+
+
+
+
 #endif
