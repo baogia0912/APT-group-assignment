@@ -1,7 +1,7 @@
-#include <iostream>
-using namespace std;
+#ifndef ACCOUNT_CPP
+#define ACCOUNT_CPP
 #include "account.h"
-#include "house.h"
+
 Account::Account(){};
 Account::Account(string username, string password)
 {
@@ -23,3 +23,4 @@ bool Account::verifyPass(string password)
         return false;
     }
 }
+#endif

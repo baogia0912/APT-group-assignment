@@ -1,6 +1,6 @@
-#include "period.h"
 #ifndef REQUEST_H
 #define REQUEST_H
+#include "period.h"
 
 class Request
 {

@@ -1,21 +1,15 @@
-#include <iostream>
-using namespace std;
-// #include "account.cpp"
 #include "member.cpp"
 #include "admin.cpp"
-#include <vector>
 #include <fstream>
-#include <string>
 #include "json.hpp"
 using json = nlohmann::json;
+#include "account.h"
 
-void getAllData(vector<Admin*> adminList, admin_file >> admins) {
+void getAllData(vector<Admin>* adminList, vector<Member>* memberList) {
     // Account *acc;
     // vector<Account *> memberList;
     // vector<Account *> adminList;
     string data, userName, password, role;
-    vector<Admin*> adminList;
-    vector<Member*> memberList;
     
     json members, admins;
     ifstream member_file("members.json", ifstream::binary);
@@ -24,19 +18,41 @@ void getAllData(vector<Admin*> adminList, admin_file >> admins) {
     admin_file >> admins;
 
     for (auto admin: admins) {
-        adminList.push_back(new Admin());
-        cout << admin << endl;
+        adminList->push_back(Admin(admin["id"], admin["name"], admin["password"]));
     }
 
     for (auto member: members) {
-        // cout << member["id"];
+        memberList->push_back(Member(member["id"], member["name"], member["password"]));
     }
+}
 
+void writeAllData(vector<Admin> adminList, vector<Member> memberList) {
+    // Account *acc;
+    // vector<Account *> memberList;
+    // vector<Account *> adminList;
+    string data, userName, password, role;
+    
+    json members, admins;
+    ofstream member_file("members1.json", ofstream::binary);
+    // ifstream admin_file("admins.json", ifstream::binary);
+    // admin_file >> admins;
 
+    // for (auto admin: admins) {
+        // adminList->push_back(Admin(admin["id"], admin["name"], admin["password"]));
+    // }
+    for (int i = 0; i < memberList.size(); i++) {
+        members[i]["id"] = memberList[i].getID();
+        members[i]["name"] = memberList[i].getAccount().username;
+        members[i]["password"] = memberList[i].getAccount().password;
+    }
+    member_file << members;
 }
 
 int main()
 {   
-    getAllData();
-    // acc = new Member ("dwddw","dwdwdw");        
+    vector<Admin> adminList;
+    vector<Member> memberList;
+    getAllData(&adminList, &memberList);
+
+    writeAllData(adminList, memberList);
 }

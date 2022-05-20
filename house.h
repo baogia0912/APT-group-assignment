@@ -1,9 +1,9 @@
+#ifndef HOUSE_H
+#define HOUSE_H
 #include "rating.h"
 #include "period.h"
 #include "request.h"
-#include <vector>
-#ifndef HOUSE_H
-#define HOUSE_H
+
 class House
 {
 private:
