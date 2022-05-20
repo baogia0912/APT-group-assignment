@@ -5,6 +5,7 @@
 #include <vector>
 #include "member.cpp"
 #include "admin.cpp"
+#include "guest.cpp"
 
 using namespace std;
 
