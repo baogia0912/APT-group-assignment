@@ -1,17 +1,17 @@
-#include "member.h"
-#include "house.h"
-#include <vector>
 #ifndef ADMIN_H
 #define ADMIN_H
+#include "member.h"
+#include "house.h"
 
 class Admin
 {
 private:
+    string id;
     Account *account;
 
 public:
     Admin();
-    Admin(string username, string password);
+    Admin(string id, string username, string password);
 
     Account getAccount();
 

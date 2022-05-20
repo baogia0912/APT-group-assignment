@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
 #include "request.h"
-#include "period.h"
 
 Request::Request()
 {

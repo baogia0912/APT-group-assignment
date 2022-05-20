@@ -1,9 +1,3 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-#include "request.h"
-#include "rating.cpp"
-#include "period.h"
 #include "house.h"
 
 House::House()
