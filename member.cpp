@@ -1,7 +1,10 @@
 #include "account.cpp"
 #include "rating.cpp"
 #include "member.h"
+#include <vector>
 
+vector<string> passwordMemberList;
+vector<string> usernameMemberList;
 Member::Member(){};
 Member::Member(string id, string username, string password)
 {

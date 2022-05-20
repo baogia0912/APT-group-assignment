@@ -1,7 +1,12 @@
 #include "admin.h"
 #include "account.cpp"
+#include <vector>
+#include <string.h>
+#include <iostream>
 
 Admin::Admin(){}
+vector<string> passwordAdminList;
+vector<string> usernameAdminList;
 
 Admin::Admin(string id, string username, string password){
     this->id = id;

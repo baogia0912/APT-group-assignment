@@ -4,6 +4,8 @@ using namespace std;
 #include <vector>
 #include "guest.h"
 Guest::Guest(){};
+vector<string> passwordGuestList;
+vector<string> usernameGuestList;
 
 Member Guest::signUp()
 {
