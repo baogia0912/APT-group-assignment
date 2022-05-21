@@ -17,6 +17,16 @@ House::House(int houseID, string address, string occupantID, string description,
     this->requests = requests;
 }
 
+ostream& operator<<(ostream& os, const House& house)
+{
+    os <<"House ID : " << house.houseID  << "\n" << 
+    "House address : " <<  house.address << "\n" <<
+    "Description : " << house.description << "\n" <<
+    "Occupant ID : "<< house.occupantID;
+    return os;
+}
+
+
 double House::getHouseRating(Rating &rating)
 {
 }

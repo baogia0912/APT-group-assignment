@@ -3,7 +3,6 @@
 #include "member.h"
 #include <vector>
 
-
 vector<Member *> members;
 vector<Admin *> admins;
 vector<House *> houses;
@@ -32,6 +31,20 @@ int Member::getID()
     return id;
 }
 
+void Member::addHouse (House * house) {
+    this->houses.push_back(house);
+}
+
+void Member::housesListing() {
+    
+    for (House * house : this->houses ) {
+        if (house->availablePeriods.size() !=0) {
+            cout <<"House " << house->address
+        }
+    }
+}
+
+
 void Member::createRating(House *house)
 {
     string comment;
@@ -44,7 +57,27 @@ void Member::createRating(House *house)
     house->houseRating.push_back(rate);
 }
 
-
-void createRequest() {
-    
+void Member::createRequest(House *house)
+{
+    double startDate, endDate;
+    int requesterId;
+    cout << "Please choose the period : ";
+    cin >> startDate;
+    cin >> endDate;
+    Period period(startDate, endDate);
+    cout << "Enter your ID";
+    cin >> requesterId;
+    Request *request = new Request(period, requesterId);
+    for (House *target : houses)
+    {
+        if (target == house)
+        {
+            house->requests.push_back(request);
+        }
+    }
 }
+
+void Member::addCredit(int num)
+{
+    this->credits = num;
+};

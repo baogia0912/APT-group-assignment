@@ -3,10 +3,8 @@
 Request::Request()
 {
 }
-Request::Request(Period period, string requesterID)
+Request::Request(Period period, int requesterID)
 {
     this->period = period;
     this->requesterID = requesterID;
 }
-
-

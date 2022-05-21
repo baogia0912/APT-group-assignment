@@ -6,11 +6,11 @@ class Request
 {
 private:
     Period period;
-    string requesterID;
+    int requesterID;
 
 public:
     Request();
-    Request(Period period, string requesterID);
+    Request(Period period, int requesterID);
 };
 
 #endif

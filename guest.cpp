@@ -3,7 +3,6 @@ using namespace std;
 #include "member.cpp"
 #include <vector>
 #include "guest.h"
-#include "functions.cpp"
 Guest::Guest(){};
 vector<string> passwordGuestList;
 vector<string> usernameGuestList;
@@ -38,6 +37,7 @@ Member *Guest::signUp(vector<Member *> members)
         return nullptr;
     }
     newMember = new Member(username, password1);
+    newMember->addCredit(500);
     members.push_back(newMember);
     return newMember;
 }
@@ -49,6 +49,6 @@ void Guest::viewLimitedHouse(vector<House> houseList)
         cout << "House id : " << houseList[i].houseID << endl;
         cout << "House address : " << houseList[i].address << endl;
         cout << "Description : " << houseList[i].description << endl;
-        cout << endl;
+        cout << <<endl;
     }
 }

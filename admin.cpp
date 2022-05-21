@@ -23,8 +23,11 @@ int Admin::getID(){
     return this->id;
 }
 void Admin::viewAllMember(vector<Account *> members)
-{
 
+{
+    for (Account * mem : members) {
+        cout << mem->username;
+    }
 }
 
 void Admin::viewAllHouse(vector<House *> houses)
