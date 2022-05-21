@@ -11,7 +11,7 @@ void menu()
     vector<Admin *> admins;
     vector<House *> houses;
 
-    auto data = getAllData(&admins, &members, &houses);
+    // auto data = getAllData(&admins, &members, &houses);
 
     int highestID = 0;
     for (Member *mem : members)

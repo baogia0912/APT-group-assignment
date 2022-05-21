@@ -4,26 +4,12 @@ House::House()
 {
 }
 
-House::House(int houseID, string address, string occupantID, string description, double minOccupierRating,
-        vector<Rating *> houseRating, vector<Request*> requests, vector<Period*> availablePeriods){
+House::House(int houseID, string address,string description, int CPD) {
     this->houseID = houseID;
     this->address = address;
-    this->occupantID = occupantID;
     this->description = description;
-    this->minOccupierRating = minOccupierRating;
-    this->houseRating = houseRating;
-    this->availablePeriods = availablePeriods;
-    this->requests = requests;
 }
 
-ostream& operator<<(ostream& os, const House& house)
-{
-    os <<"House ID : " << house.houseID  << "\n" << 
-    "House address : " <<  house.address << "\n" <<
-    "Description : " << house.description << "\n" <<
-    "Occupant ID : "<< house.occupantID;
-    return os;
-}
 
 
 double House::getHouseRating(Rating &rating)

@@ -11,6 +11,7 @@ private:
 public:
     Request();
     Request(Period period,int requesterID);
+    friend class Member;
 };
 
 #endif
