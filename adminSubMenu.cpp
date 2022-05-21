@@ -1,5 +1,7 @@
-#include <iostream>
-using namespace std;
+#include "admin.h"
+#ifndef OPTION
+#define OPTION 0
+#endif
 
 // Menu for admin;
 /*
@@ -10,7 +12,7 @@ Option 2: View all house;
 
 void menuForAdmin()
 {
-    int option;
+    int OPTION;
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";
     cout << "===================================================== \n";
@@ -20,7 +22,4 @@ void menuForAdmin()
     cout << "2: View the house."<<endl;
     cout <<endl;
     cout <<"Press any key to exit the program"<<endl;
-}
-int main(){
-    menuForAdmin();
 }

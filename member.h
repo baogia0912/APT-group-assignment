@@ -1,8 +1,9 @@
-#include "house.h"
-#include "account.h"
 #ifndef MEMBER_H
 #define MEMBER_H
-
+#include "house.h"
+#include "account.h"
+#include <iostream>
+using namespace std;
 class Member
 {
 

@@ -2,12 +2,13 @@
 #define ADMIN_H
 #include "member.h"
 #include "house.h"
-
+#include <iostream>
+using namespace std;
 class Admin
 {
 private:
     int id;
-    Account *account;
+    Account account;
 
 public:
     Admin();

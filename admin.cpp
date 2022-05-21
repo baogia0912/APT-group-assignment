@@ -1,8 +1,5 @@
 #include "admin.h"
 #include "account.cpp"
-#include <vector>
-#include <string.h>
-#include <iostream>
 
 Admin::Admin() {}
 vector<string> passwordAdminList;
@@ -11,12 +8,12 @@ vector<string> usernameAdminList;
 Admin::Admin(int id, string username, string password)
 {
     this->id = id;
-    this->account = new Account(username, password);
+    this->account = Account(username, password);
 }
 
 Account Admin::getAccount()
 {
-    return *account;
+    return this->account;
 }
 
 int Admin::getID()
@@ -39,7 +36,7 @@ void Admin::viewAllHouse(vector<House *> houses)
         cout << "House ID : " << house->houseID << endl;
         cout << "House Address : " << house->address << endl;
         cout << "House description : " << house->description << endl;
-        cout << "OccupantID : " << house->occupantID << endl;
+        cout << "OccupantID : " << house->occupierID << endl;
         for (int j = 0; j < houses[j]->availablePeriods.size(); j++)
         {
             cout << "P " + j + 1 << ":" << houses[j]->availablePeriods[j] << endl;

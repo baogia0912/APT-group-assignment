@@ -1,9 +1,10 @@
+#ifndef MEMBER_CPP
+#define MEMBER_CPP
 #include "account.cpp"
 #include "rating.cpp"
 #include "member.h"
 #include "period.cpp"
 #include "request.cpp"
-#include <vector>
 
 Member::Member(){};
 Member::Member(string username, string password)
@@ -158,8 +159,4 @@ void Member::searchHouse(string address)
         }
     }
 }
-
-int main()
-{
-    cout << "heloo";
-}
+#endif
