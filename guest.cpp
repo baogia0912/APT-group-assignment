@@ -43,13 +43,13 @@ Member *Guest::signUp(vector<Member *> members)
     return newMember;
 }
 
-void Guest::viewLimitedHouse(vector<House> houseList)
+void Guest::viewHouseDetails(vector<House *> houseList)
 {
-    for (int i = 0; i < houseList.size(); i++)
+
+    for (House *house : houseList)
     {
-        cout << "House id : " << houseList[i].houseID << endl;
-        cout << "House address : " << houseList[i].address << endl;
-        cout << "Description : " << houseList[i].description << endl;
-        cout << <<endl;
+        cout << "House ID : " << house->houseID << endl;
+        cout << "House Address : " << house->address << endl;
+        cout << "Description : " << house->description << endl;
     }
 }

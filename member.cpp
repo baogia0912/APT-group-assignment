@@ -1,9 +1,6 @@
-#include "account.cpp"
-#include "rating.cpp"
 #include "member.h"
-#include "period.cpp"
-#include "request.cpp"
 #include <vector>
+using namespace std;
 
 Member::Member(){};
 Member::Member(string username, string password)
@@ -64,26 +61,36 @@ void Member::housesListing()
 
 void Member::createHouseRating(House *house)
 {
-    string comment;
-    double points;
-    cout << "Please enter your comment";
-    cin >> comment;
-    cout << "Rating ";
-    cin >> points;
-    Rating *rate = new Rating(comment, points);
-    house->houseRating.push_back(rate);
+    if (house != nullptr)
+    {
+        string comment;
+        double points;
+        cout << "Please enter your comment";
+        cin >> comment;
+        cout << "Rating ";
+        cin >> points;
+        Rating *rate = new Rating(comment, points);
+        house->houseRating.push_back(rate);
+    }
 }
 
 bool Member::rateOccupier(Member *occupier)
 {
-    double points;
-    string comment;
-    cout << "Please enter your comment";
-    cin >> comment;
-    cout << "Rating";
-    cin >> points;
-    Rating *rate = new Rating(comment, points);
-    occupier->ratings.push_back(rate);
+    if (occupier == nullptr)
+    {
+        return false;
+    }
+    else
+    {
+        double points;
+        string comment;
+        cout << "Please enter your comment";
+        cin >> comment;
+        cout << "Rating";
+        cin >> points;
+        Rating *rate = new Rating(comment, points);
+        occupier->ratings.push_back(rate);
+    }
     return true;
 }
 
@@ -96,18 +103,17 @@ void Member::createRequest(House *house)
     cout << "Enter your ID";
     cin >> requesterId;
     Request *request = new Request(period, requesterId);
-
     house->requests.push_back(request);
 }
 
-double Member::CaluculateSelfRating(vector<Rating *> ratings)
+double Member::calculateSelfRating(vector<Rating *> ratings)
 {
     double points;
     for (Rating *rate : ratings)
     {
         points += rate->rating;
     }
-    this->selfRating = points;
+    this->selfRating = (points / ratings.size());
     return points;
 }
 
@@ -157,9 +163,4 @@ void Member::searchHouse(string address)
             cout << "house address : " << house->address << endl;
         }
     }
-}
-
-int main()
-{
-    cout << "heloo";
 }

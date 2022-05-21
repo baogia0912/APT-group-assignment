@@ -1,7 +1,9 @@
 #ifndef ADMIN_H
 #define ADMIN_H
-#include "member.h"
+#include "member.cpp"
 #include "house.h"
+#include "account.cpp"
+
 
 class Admin
 {
@@ -18,11 +20,7 @@ public:
     int getID();
 
     void viewAllMember(vector<Account *> memberList);
-
     void viewAllHouse(vector<House *> houseList);
-    void viewAllRequest(vector<Request *> requestList);
-
-    double getHouseRating(vector<Rating *> houseRating);
 };
 
 #endif

@@ -12,6 +12,12 @@ House::House(int houseID, string address,string description, int CPD) {
 
 
 
+
+void House::viewRating(){
+
+}
+
+
 double House::getHouseRating(Rating &rating)
 {
 }
