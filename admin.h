@@ -20,12 +20,9 @@ public:
     void viewAllMember(vector<Account *> memberList);
 
     void viewAllHouse(vector<House *> houseList);
+    void viewAllRequest(vector<Request *> requestList);
 
     double getHouseRating(vector<Rating *> houseRating);
-
-    double getOccupantRating(vector<Rating *> occupantRating);
-
-    void getRequest(vector<Request *> requestList);
 };
 
 #endif

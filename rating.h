@@ -14,7 +14,9 @@ public:
     Rating();
     Rating(string comment, double rating);
     friend class Admin;
+    friend class Member;
 };
+
 
 
 

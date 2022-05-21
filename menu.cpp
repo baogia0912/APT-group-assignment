@@ -4,17 +4,14 @@
 #include "logIn.cpp"
 #include "database.cpp"
 
-
 void menu()
 {
     int option;
-    vector<House > houses;  
-    vector<Admin > admins;  
-    vector<Member > members;
+    vector<Member *> members;
+    vector<Admin *> admins;
+    vector<House *> houses;
 
-
-    auto data = getAllData(&admins,&members,&houses);
-
+    auto data = getAllData(&admins, &members, &houses);
 
     int highestID = 0;
     for (Member *mem : members)
@@ -24,7 +21,6 @@ void menu()
     }
     ++highestID;
 #define NEXTMEMBERID highestID
-
 
     while (1)
     {
@@ -56,5 +52,5 @@ void menu()
         }
     }
 
-    writeAllData(admins,members);
+    writeAllData(admins, members);
 }

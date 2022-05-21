@@ -22,10 +22,10 @@ class Member
 private:
     int id;
     Account *acc;
-    vector<House *> houses;
+    vector<House *> memberHouse;
     vector<Rating *> ratings;
     int credits;
-
+    double selfRating;
 public:
     Member();
     Member(string username, string password);
@@ -38,6 +38,7 @@ public:
     void createRequest(House *house);
     void addCredit(int num);
     void housesListing();
+    double CaluculateSelfRating(vector<Rating*> ratings); 
 };
 
 #endif

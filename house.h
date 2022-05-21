@@ -9,7 +9,6 @@ class House
 private:
     vector<Period*> availablePeriods;//done
     vector<Rating*> houseRating;//done
-    vector<Rating*> occupierRating;//done
     double minOccupierRating;//done
     vector<Request*> requests;//done
     Member owner;
@@ -22,7 +21,7 @@ public:
     House();
 
     House(int houseID, string address, string occupantID, string description, double minOccupierRating,
-        vector<Rating *> houseRating, vector<Rating*> occupierRating, vector<Request*> requests, vector<Period*> availablePeriods);
+        vector<Rating *> houseRating, vector<Request*> requests, vector<Period*> availablePeriods);
     friend ostream& operator<<(ostream& os, const House& dt);
     double getHouseRating(Rating &rating);
     friend class Member;
