@@ -18,6 +18,8 @@ void menuForAdmin()
     cout << endl;
     cout << "1: View the member.\n";
     cout << "2: View the house."<<endl;
+    cout <<endl;
+    cout <<"Press any key to exit the program"<<endl;
 }
 int main(){
     menuForAdmin();
