@@ -10,7 +10,7 @@ private:
 
 public:
     Request();
-    Request(Period period, int requesterID);
+    Request(Period period,int requesterID);
 };
 
 #endif

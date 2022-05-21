@@ -39,7 +39,7 @@ void Member::housesListing() {
     
     for (House * house : this->houses ) {
         if (house->availablePeriods.size() !=0) {
-            cout <<"House " << house->address
+            cout <<"House " << house->address;
         }
     }
 }
@@ -59,12 +59,10 @@ void Member::createRating(House *house)
 
 void Member::createRequest(House *house)
 {
-    double startDate, endDate;
-    int requesterId;
-    cout << "Please choose the period : ";
-    cin >> startDate;
-    cin >> endDate;
-    Period period(startDate, endDate);
+    int requesterId;    
+    Period period;
+    period.setPeriod();
+    // Period period(startDate, endDate);
     cout << "Enter your ID";
     cin >> requesterId;
     Request *request = new Request(period, requesterId);
