@@ -1,147 +1,180 @@
-<<<<<<< HEAD
-#include <iostream>
-using namespace std;
-#include <string>
-#include <vector>
-#include <sstream>
-class Period{
-    private:
-        int d, m, y;
-        const int monthDays[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    public:
-        Period(){
-=======
->>>>>>> ea3e8cbaccb89fe4d92a30c973323efa270d713f
 
 #include "period.h"
-// // class Period{
-// //     private:
-// //         string startDate;
-// //         string endDate;
-// //     public:
-// //         Period(){
 
-// //         }
-        
-<<<<<<< HEAD
-        Period(int d, int m, int y){
-            this->d = d;
-            this->m = m;
-            this->y = y;
-        }
+/*default constructor*/
+Period::Period()
+{
+}
 
-        int countLeapYears (Period p){
-            int years = p.y;
+/*constructor*/
+Period::Period(year_month_day startDate, year_month_day endDate)
+{
+    this->startDate = startDate;
+    this->endDate = endDate;
+}
 
-            if(p.m <= 2){
-                years--;
-            }
-            return (years/4) - (years/100) + (years/400);
-        }
+/*function to set the start date*/
+void Period::setStartDate(year_month_day start)
+{
+    this->startDate = start;
+}
 
-        int getDays(Period p1, Period p2){
-            long int n1 = p1.y * 365 + p1.d;
-            for(int i = 0; i < p1.m - 1, i++){
-                n1 += monthDays[i];
-            }
-            n1 += countLeapYears(p1);
-            
-            long int n2 = p2.y * 365 + p2.d;
-            for(int i = 0; i < p2.m - 1; i++){
-                n2 += monthDays[i];
-            }
-            n2 += countLeapYears(p2);
+/*function to set the end date*/
+void Period::setEndDate(year_month_day end)
+{
+    this->endDate = end;
+}
 
-            return (n2 - n1);
-        }
+/*function to get the start date*/ 
+year_month_day Period::getStartDate()
+{
+    return this->startDate;
+}
 
-        /*string setDate(string start, string end){
-            startDate = start;
-            endDate = end;
-            return startDate;
-            return endDate;
-        }
-        
-        void getDays(string startDate, string endDate){
-            string startDay = startDate.substr(0, 2);
-            string endDay = endDate.substr(0, 2);
-            string startMonth = startDate.substr(3, 2);
-            string endMonth = endDate.substr(3, 2);
-            string startYear = startDate.substr(6, 4);
-            string endYear = endDate.substr(6, 4);
-            int days = (stoi(endDay) - stoi(startDay)) + (stoi(endMonth) - stoi(startMonth));
-        }*/
-};
-=======
-// //         Period(string startDate, string endDate){
-// //             this->startDate = startDate;
-// //             this->endDate = endDate;
-// //         }
+/*function to get the end date*/ 
+year_month_day Period::getEndDate()
+{
+    return this->endDate;
+}
 
-// //         string setDate(string start, string end){
-// //             startDate = start;
-// //             endDate = end;
-// //             return startDate;
-// //             return endDate;
-// //         }
-// //         /*dd/mm/yyyy*/
-// //         void getDays(string startDate, string endDate){
-// //             string startDay = startDate.substr(0, 2);
-// //             string endDay = endDate.substr(0, 2);
-// //             string startMonth = startDate.substr(3, 2);
-// //             string endMonth = endDate.substr(3, 2);
-// //             string startYear = startDate.substr(6, 4);
-// //             string endYear = endDate.substr(6, 4);
-// //             int days = (stoi(endDay) - stoi(startDay)) + (stoi(endMonth) - stoi(startMonth));
-// //         }
-// // };
->>>>>>> ea3e8cbaccb89fe4d92a30c973323efa270d713f
+/* function to calculate the difference between 2 dates*/
+std::chrono::duration<int, std::ratio<86400, 1>> Period::getGap()
+{
+    return sys_days{this->endDate} - sys_days{this->startDate};
+}
 
-// int main (){
-//     int startDay;
-//     int startMonth;
-//     int startYear;
-//     int endDay;
-//     int endMonth;
-//     int endYear;
-//     cout << "Enter start day:" << endl;
-//     cin >> startDay;
-//     cout << "Enter start month:" << endl;
-//     cin >> startMonth;
-//     cout << "Enter start year:" << endl;
-//     cin >> startYear;
-//     cout << "Enter end day:" << endl;
-//     cin >> endDay;
-//     cout << "Enter end month:" << endl;
-//     cin >> endMonth;
-//     cout << "Enter end year:" << endl;
-//     cin >> endYear;
-//     cout << "Start date: " << startDay << "/" << startMonth << "/" << startYear << endl;
-//     cout << "End date: " << endDay << "/" << endMonth << "/" << endYear << endl;
-    
-    
-<<<<<<< HEAD
-    Period start = {startDay, startMonth, startYear};
-    Period end = {endDay , endMonth, endYear};
-   cout << "Days: " << int Period::getDays(start, end);
-=======
-//     Period start = {startDay, startMonth, startYear};
-//     Period end = {endDay , endMonth, endYear};
-   
-// }
-
+/* function to format date*/
 date::year_month_day
 make_year_month_day(int y, int m, int d)
 {
     using namespace date;
-    return year{y}/m/d;
->>>>>>> ea3e8cbaccb89fe4d92a30c973323efa270d713f
+    return year{y} / m / d;
 }
-int main () {
-    year_month_day end = make_year_month_day(2022, 5, 20);
-    year_month_day start = make_year_month_day(2021, 4, 10);
-    auto today = floor<days>(system_clock::now());
 
-    cout <<  sys_days{end} - sys_days{start};
+/* function to set the period*/
+void Period::setPeriod()
+{   
+    /*use try-catch to handle exception*/
+    try
+    {
+        Period p1;
+        int startDay;
+        int startMonth;
+        int startYear;
+        int endDay;
+        int endMonth;
+        int endYear;
+        
+        /*user input for start date*/
+        cout << "Enter start day:" << endl;
+        cin >> startDay;
+        cout << "Enter start month:" << endl;
+        cin >> startMonth;
+        cout << "Enter start year:" << endl;
+        cin >> startYear;
+        
+        /*for months that have 31 days*/
+        if (startMonth == 1 || startMonth == 3 || startMonth == 5 || startMonth == 7 || startMonth == 8 || startMonth == 10 || startMonth == 12)
+        {
+            if (startDay <= 31)
+            {
+                year_month_day start = make_year_month_day(startYear, startMonth, startDay);
+                p1.setStartDate(start);
+            }
+            else
+            {
+                throw(startMonth);
+            }
+        }
+
+        /*for months that have 30 days*/
+        if (startMonth == 4 || startMonth == 6 || startMonth == 9 || startMonth == 11)
+        {
+            if (startDay <= 30)
+            {
+                year_month_day start = make_year_month_day(startYear, startMonth, startDay);
+                p1.setStartDate(start);
+            }
+            else
+            {
+                throw(startMonth);
+            }
+        }
+        
+        /*only for february*/
+        if (startMonth == 2)
+        {
+            if (startDay <= 29)
+            {
+                year_month_day start = make_year_month_day(startYear, startMonth, startDay);
+                p1.setStartDate(start);
+            }
+            else
+            {
+                throw(startMonth);
+            }
+        }
+
+        /*user input for end date*/
+        cout << "Enter end day:" << endl;
+        cin >> endDay;
+        cout << "Enter end month:" << endl;
+        cin >> endMonth;
+        cout << "Enter end year:" << endl;
+        cin >> endYear;
+
+        /*for months that have 31 days*/
+        if (endMonth == 1 || endMonth == 3 || endMonth == 5 || endMonth == 7 || endMonth == 8 || endMonth == 10 || endMonth == 12)
+        {
+            if (endDay <= 31)
+            {
+                year_month_day end = make_year_month_day(endYear, endMonth, endDay);
+                p1.setEndDate(end);
+            }
+            else
+            {
+                throw(endMonth);
+            }
+        }
+
+        /*for months that have 30 days*/
+        if (endMonth == 4 || endMonth == 6 || endMonth == 9 || endMonth == 11)
+        {
+            if (endDay <= 30)
+            {
+                year_month_day end = make_year_month_day(endYear, endMonth, endDay);
+                p1.setEndDate(end);
+            }
+            else
+            {
+                throw(endMonth);
+            }
+        }
+
+        /*only for february*/
+        if (endMonth == 2)
+        {
+            if (endDay <= 29)
+            {
+                year_month_day end = make_year_month_day(endYear, endMonth, endDay);
+                p1.setEndDate(end);
+            }
+            else
+            {
+                throw(endMonth);
+            }
+        }
+
+        // auto today = floor<days>(system_clock::now());
     
+        cout << "Requested period: " << p1.getStartDate() << " to "
+             << p1.getEndDate() << "\n"; //print out the period from date to date
+        cout << "Total requested days: " << p1.getGap() << "\n"; //print out the total days of the period
+    }
+    /*catch error and handle it*/
+    catch (int x)
+    {
+        cout << "Please enter the month that have the correct numbers of day!" << endl;
+        cin.clear();
+    }
 }
