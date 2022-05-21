@@ -29,7 +29,9 @@ void menuForMember()
              << "2: Listing the Available house for being occupied.\n"
              << "3: Search the available houses.\n"
              << "4: View the listed houses.\n"
-             << "5: View the House Occupied" << endl;
+             << "5: View the House Occupied.\n";
+        cout <<endl;
+        cout <<"Press any key to exit the program"<<endl;
         cin >> option;
         switch (option)
         {
@@ -97,6 +99,7 @@ void menuForMember()
             break;
 
         default:
+            exit(0);
             break;
         }
     }

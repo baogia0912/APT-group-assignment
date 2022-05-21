@@ -9,8 +9,13 @@ void menuForGuest(Guest* guest, vector<Member*> members) {
     cout << "===================================================== \n";
     cout << "                Enter your choice (1-2)\n";
     cout << endl;
-    cout << "1: Register a member account.\n"
-         << "2: View all house details.\n";
+    cout << "       1: Register a member account.\n";
+    cout << "       2: View all house details.\n";
+    
+    cout << endl;
+    cout << "       Press any key to exit the program.\n" << endl;
+    cout <<endl;
+
     cout << "========================================================================= \n";
     cout << "  In case you would like to access the reviews section and avaiability.\n"
          << "              Member registration is compulsory" << endl;
@@ -26,6 +31,7 @@ void menuForGuest(Guest* guest, vector<Member*> members) {
         viewAllHouses();
         break;
     default:
+        exit(0);
         break;
     }
 }

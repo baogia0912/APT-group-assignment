@@ -3,7 +3,7 @@ using namespace std;
 #include "member.cpp"
 #include <vector>
 #include "guest.h"
-#include "functions.cpp"
+#include "database.cpp"
 Guest::Guest(){};
 vector<string> passwordGuestList;
 vector<string> usernameGuestList;
