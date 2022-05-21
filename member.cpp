@@ -7,13 +7,6 @@
 #include "request.cpp"
 
 Member::Member(){};
-Member::Member(string username, string password)
-{
-#ifdef NEXTMEMBERID
-    this->id = NEXTMEMBERID++;
-#endif
-    this->acc = new Account(username, password);
-}
 Member::Member(int id, string username, string password)
 {
     this->id = id;
@@ -32,12 +25,16 @@ int Member::getID()
 
 void Member::addHouse(House *house)
 {
-    this->memberHouse.push_back(house);
+    this->houses.push_back(house);
+}
+
+vector<House*> Member::getAllHouses() {
+    return this->houses;
 }
 
 void Member::setCPD(int num, House *targetHouse)
 {
-    for (House *house : memberHouse)
+    for (House *house : houses)
     {
         if (targetHouse == house)
         {
@@ -54,7 +51,7 @@ void Member::setCPD(int num, House *targetHouse)
 void Member::housesListing()
 {
 
-    for (House *house : this->memberHouse)
+    for (House *house : this->houses)
     {
         if (house->availablePeriods.size() != 0)
         {
@@ -128,7 +125,7 @@ void Member::addCredit(int num)
 
 void Member::listAvailableHouse()
 {
-    for (House *house : this->memberHouse)
+    for (House *house : this->houses)
     {
         cout << "CPD :" << house->CPD << endl;
         cout << "Min Rating requirement : " << house->minOccupierRating << endl;
@@ -159,7 +156,7 @@ bool Member::acceptRequest(House *house, Request *request)
 void Member::searchHouse(string address)
 {
     cout << "Available Houses : " << endl;
-    for (House *house : this->memberHouse)
+    for (House *house : this->houses)
     {
         if (address == house->address && this->credits == house->CPD && this->selfRating == house->minOccupierRating)
         {

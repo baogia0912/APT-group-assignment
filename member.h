@@ -10,20 +10,20 @@ class Member
 private:
     int id;
     Account *acc;
-    vector<House *> memberHouse;
+    vector<House *> houses;
     vector<Rating *> ratings;
     int credits;
     double selfRating;
 
 public:
     Member();
-    Member(string username, string password);
     Member(int id, string username, string password);
     Account getAccount();
     void setOccupierID(int ID, House *house);
     int getID();
     void setCPD(int num, House *targetHouse);
     void addHouse(House *house);
+    vector<House*> Member::getAllHouses();
     void createHouseRating(House *house);
     void createRequest(House *house);
     void addCredit(int num);

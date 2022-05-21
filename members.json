@@ -5,8 +5,12 @@
         "password": "12345",
         "houseList": [
             {
-                "house_id": "1"
-
+                "house_id": "1",
+                "address": "sdvfweegfewrf",
+                "description": "wefefwefqef",
+                "cpd": 1,
+                "occupier_id": 5,
+                "min_occupier_rating": 3.5
             }
         ]
     },
@@ -16,19 +20,27 @@
         "password": "12345",
         "houseList": [
             {
-                "house_id": "2"
-
+                "house_id": "2",
+                "address": "sdvfweegfewrf",
+                "description": "wefefwefqef",
+                "cpd": 1,
+                "occupier_id": 5,
+                "min_occupier_rating": 3.5
             }
         ]
     },
     {
-        "id":3,
+        "id": 3,
         "name": "kiet",
         "password": "12345",
         "houseList": [
             {
-                "house_id": "3"
-
+                "house_id": "3",
+                "address": "sdvfweegfewrf",
+                "description": "wefefwefqef",
+                "cpd": 1,
+                "occupier_id": 5,
+                "min_occupier_rating": 3.5
             }
         ]
     },
@@ -38,8 +50,12 @@
         "password": "12345",
         "houseList": [
             {
-                "house_id": "4"
-
+                "house_id": "4",
+                "address": "sdvfweegfewrf",
+                "description": "wefefwefqef",
+                "cpd": 1,
+                "occupier_id": 5,
+                "min_occupier_rating": 3.5
             }
         ]
     }

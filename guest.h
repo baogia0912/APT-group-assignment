@@ -12,7 +12,7 @@ public:
 
     Member* signUp(vector<Member>* members);
 
-    void viewHouseDetails(vector<House *> houseList);
+    void viewHouseDetails(vector<House> houseList);
 };
 
 #endif

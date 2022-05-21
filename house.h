@@ -9,14 +9,14 @@ class House
 private:
     vector<Period *> availablePeriods; // done
     vector<Rating *> houseRating;      // done
-    double minOccupierRating;          // done
     vector<Request *> requests;        // done
-    int CPD;
 
 public:
+    double minOccupierRating;          // done
     string address;     // done
     string houseID;     // done
     string description; // done
+    int CPD;
     int occupierID;     // done
     House();
 
