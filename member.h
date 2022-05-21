@@ -4,17 +4,17 @@
 #include "house.h"
 
 /*
-5. A member can list his/her house available to be occupied (with consuming points, and 
-minimum required occupier rating), and unlist it if wanted. 
-6. A member can search for all available suitable houses for a particular city (suitable 
-with his current credit points and rating score). 
-7. A member can request to occupy a house. 
-8. A member can view all requests to his listed house. 
-9. A member can accept a request (reject all other requests). 
-10. A member can occupy the successfully requested house. 
-11. A member can rate each of his/her occupied houses (score and comment). 
-12. A member can rate each of the occupiers who had used his/her house (score and 
-comment). 
+5. A member can list his/her house available to be occupied (with consuming points, and
+minimum required occupier rating), and unlist it if wanted.
+6. A member can search for all available suitable houses for a particular city (suitable
+with his current credit points and rating score).
+7. A member can request to occupy a house.
+8. A member can view all requests to his listed house.
+9. A member can accept a request (reject all other requests).
+10. A member can occupy the successfully requested house.
+11. A member can rate each of his/her occupied houses (score and comment).
+12. A member can rate each of the occupiers who had used his/her house (score and
+comment).
 */
 class Member
 {
@@ -22,10 +22,10 @@ class Member
 private:
     int id;
     Account *acc;
-    vector<House *> houses;
+    vector<House *> memberHouse;
     vector<Rating *> ratings;
     int credits;
-
+    double selfRating;
 public:
     Member();
     Member(string username, string password);
@@ -33,8 +33,12 @@ public:
     Account getAccount();
     int getID();
 
-    void createRequest();
+    void addHouse(House *house);
     void createRating(House *house);
+    void createRequest(House *house);
+    void addCredit(int num);
+    void housesListing();
+    double CaluculateSelfRating(vector<Rating*> ratings); 
 };
 
 #endif
