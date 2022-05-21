@@ -6,14 +6,16 @@
 class Admin
 {
 private:
-    string id;
+    int id;
     Account *account;
 
 public:
     Admin();
-    Admin(string id, string username, string password);
+    Admin(int id, string username, string password);
 
     Account getAccount();
+
+    int getID();
 
     void viewAllMember(vector<Account *> memberList);
 

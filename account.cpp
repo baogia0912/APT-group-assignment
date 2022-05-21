@@ -12,15 +12,10 @@ Account::Account(string username, string password)
 
 bool Account::verifyPass(string password)
 {
-
-    if (password == this->password)
-    {
-        cout << "Correct password!" << endl;
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return this->password == password;
 }
+
+
+
+
 #endif

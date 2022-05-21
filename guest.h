@@ -10,7 +10,7 @@ class Guest
 public:
     Guest();
 
-    Member signUp();
+    Member* signUp(vector<Member*> members);
 
     void viewLimitedHouse(vector<House> houseList);
 };

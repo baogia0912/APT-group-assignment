@@ -48,7 +48,7 @@ date::year_month_day
 make_year_month_day(int y, int m, int d)
 {
     using namespace date;
-    return year{y} / m / d;
+    return year{y}/m/d;
 }
 
 /* function to set the period*/
