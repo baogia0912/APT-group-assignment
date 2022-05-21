@@ -3,11 +3,9 @@
 #include <fstream>
 #include "json.hpp"
 using json = nlohmann::json;
-#include "account.h"
 
 void getAllData(vector<Admin>* adminList, vector<Member>* memberList, vector<House>* houseList) {
     string userName, password;
-    vector <House>* houseList;
     json members, admins;
     ifstream member_file("members.json", ifstream::binary);
     ifstream admin_file("admins.json", ifstream::binary);

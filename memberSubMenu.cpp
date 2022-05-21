@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
 #include "member.h"
-
 
 // Menu for member;
 /*
@@ -20,7 +17,6 @@ Option 5: View the house occupy.
 
 void menuForMember()
 {
-    int option;
     {
         cout << "===================================================== \n";
         cout << "              \t\tMENU \n";
@@ -34,18 +30,18 @@ void menuForMember()
              << "5: View the House Occupied.\n";
         cout <<endl;
         cout <<"Press any key to exit the program"<<endl;
-        cin >> option;
-        switch (option)
+        cin >> OPTION;
+        switch (OPTION)
         {
         case 1:
-            viewAllHouse();
+            // viewAllHouse();
             break;
         case 2:
-            viewOpcupiedHouse();
+            // viewOpcupiedHouse();
             break;
         case 3:
             // Viewing the Available house
-            listAvailableHouse();
+            // listAvailableHouse();
             int optionCase3;
             cout << "Enter your choice(1-2)" << endl;
             cout << "1: View the house and request to occupy.\n";
@@ -62,7 +58,7 @@ void menuForMember()
             }
             break;
         case 4:
-            viewListedHouse();
+            // viewListedHouse();
             int optionCase4;
             cout << "Enter your choice(1-2)";
             cout << "1: View the requets and accept.";
@@ -81,7 +77,7 @@ void menuForMember()
             }
             break;
         case 5:
-            viewHouseOccupy();
+            // viewHouseOccupy();
             int optionCase5;
             cout << "Enter your choice(1-2)";
             cout << "1: Score the house occupied.";
@@ -105,9 +101,4 @@ void menuForMember()
             break;
         }
     }
-}
-// menuForGuest();
-int main()
-{
-    menuForMember();
 }

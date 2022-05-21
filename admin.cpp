@@ -1,19 +1,17 @@
 #include "admin.h"
-#include <vector>
-#include <string.h>
-#include <iostream>
+#include "account.cpp"
 
 Admin::Admin() {}
 
 Admin::Admin(int id, string username, string password)
 {
     this->id = id;
-    this->account = new Account(username, password);
+    this->account = Account(username, password);
 }
 
 Account Admin::getAccount()
 {
-    return *account;
+    return this->account;
 }
 
 int Admin::getID()

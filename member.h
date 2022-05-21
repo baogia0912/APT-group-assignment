@@ -1,11 +1,9 @@
-#include "house.h"
-#include "account.cpp"
-#include "period.cpp"
-#include "request.cpp"
-#include "rating.cpp"
 #ifndef MEMBER_H
 #define MEMBER_H
-
+#include "house.h"
+#include "account.h"
+#include <iostream>
+using namespace std;
 class Member
 {
 
@@ -37,14 +35,14 @@ public:
     bool rateOccupier(Member *occupier);
     void searchHouse(string address);
     friend class Admin;
-    friend ostream &operator<<(ostream &os, const Member &dt);
+    friend ostream &operator<<(ostream &os, const Member &mem);
 };
 
-ostream &operator<<(ostream &os, const Member &dt)
+ostream& operator<<(ostream& os, const Member& mem)
 {
-    os << "Member ID : " << dt.id << endl
-       << "Member rating : " << dt.selfRating << endl
-       << "Member creadit : " << dt.credits << endl;
+    os << "Member ID : " << mem.id
+       << "\nMember rating : " << mem.selfRating
+       << "\nMember creadit : " << mem.credits;
     return os;
 };
 

@@ -1,8 +1,7 @@
-
 #ifndef RATING_H
 #define RATING_H
-using namespace std;
 #include <iostream>
+using namespace std;
 
 class Rating
 {

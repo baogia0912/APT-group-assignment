@@ -1,25 +1,20 @@
-#include <iostream>
-using namespace std;
-#include "member.cpp"
-#include <vector>
-#include "guest.h"
-#include "database.cpp"
-Guest::Guest(){};
-vector<string> passwordGuestList;
-vector<string> usernameGuestList;
+#ifndef GUEST_CPP
+#define GUEST_CPP
 
-Member *Guest::signUp(vector<Member *> members)
+#include "guest.h"
+Guest::Guest(){};
+
+Member *Guest::signUp(vector<Member>* members)
 {
-    Member *newMember;
     string username;
     string password1;
     string password2;
     cout << "Enter Username: " << endl;
     cin >> username;
 
-    for (Member *mem : members)
+    for (Member mem : *members)
     {
-        if (username == mem->getAccount().username)
+        if (username == mem.getAccount().username)
         {
             cout << "This username is already existed! Please try sign up again." << endl;
             return nullptr;
@@ -37,9 +32,9 @@ Member *Guest::signUp(vector<Member *> members)
         cout << "The 2 passwords you enter are different! Please try sign up again." << endl;
         return nullptr;
     }
-    newMember = new Member(username, password1);
+    Member* newMember = new Member(username, password1);
     newMember->addCredit(500);
-    members.push_back(newMember);
+    members->push_back(*newMember);
     return newMember;
 }
 
@@ -53,3 +48,4 @@ void Guest::viewHouseDetails(vector<House *> houseList)
         cout << "Description : " << house->description << endl;
     }
 }
+#endif // !GUEST_CPP

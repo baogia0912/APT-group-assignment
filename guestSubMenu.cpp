@@ -1,9 +1,6 @@
-#include <iostream>
-using namespace std;
-#include "guest.h"
+#include "guest.cpp"
 
-void menuForGuest(Guest* guest, vector<Member*> members) {
-    int option;
+int guestOptions(int option) {
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";
     cout << "===================================================== \n";
@@ -13,28 +10,30 @@ void menuForGuest(Guest* guest, vector<Member*> members) {
     cout << "       2: View all house details.\n";
     
     cout << endl;
-    cout << "       Press any key to exit the program.\n" << endl;
-    cout <<endl;
+    cout << "       Press any key to return to main menu.\n" << endl;
+    cout << endl;
 
     cout << "========================================================================= \n";
     cout << "  In case you would like to access the reviews section and avaiability.\n"
          << "              Member registration is compulsory" << endl;
     cout << "========================================================================= \n";
     cin >> option;
-
-    switch (option)
-    {
-    case 1:
-        if (guest->signUp(members) != nullptr) return;
-        break;
-    case 2:
-        viewAllHouses();
-        break;
-    default:
-        exit(0);
-        break;
-    }
+    return option;
 }
-int main(){
-    menuForGuest();
+
+void menuForGuest(Guest* guest, vector<Member>* members) {
+    int option;
+    while(1) {
+        option = guestOptions(option);
+        switch (option)
+        {
+        case 1:
+            if (guest->signUp(members) != nullptr) return;
+            break;
+        case 2:
+            break;
+        default:
+            return;
+        }
+    }
 }
