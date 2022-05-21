@@ -1,8 +1,3 @@
-// #include "guestSubMenu.cpp"
-// #include "memberSubMenu.cpp"
-// #include "adminSubMenu.cpp"
-// #include "logIn.cpp"
-// #include "database.cpp"
 using namespace std;
 #include "iostream"
 

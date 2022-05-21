@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+#include "member.h"
+
 
 // Menu for member;
 /*
@@ -43,7 +45,7 @@ void menuForMember()
             break;
         case 3:
             // Viewing the Available house
-            viewAvailableHouse();
+            listAvailableHouse();
             int optionCase3;
             cout << "Enter your choice(1-2)" << endl;
             cout << "1: View the house and request to occupy.\n";

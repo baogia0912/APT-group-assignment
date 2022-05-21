@@ -1,7 +1,7 @@
+#include "house.h"
+#include "account.h"
 #ifndef MEMBER_H
 #define MEMBER_H
-#include "account.h"
-#include "house.h"
 
 class Member
 {

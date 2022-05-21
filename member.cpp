@@ -1,6 +1,8 @@
 #include "account.cpp"
 #include "rating.cpp"
 #include "member.h"
+#include "period.cpp"
+#include "request.cpp"
 #include <vector>
 
 Member::Member(){};
@@ -74,7 +76,7 @@ void Member::createHouseRating(House *house)
 
 bool Member::rateOccupier(Member *occupier)
 {
-    bool points;
+    double points;
     string comment;
     cout << "Please enter your comment";
     cin >> comment;
@@ -82,6 +84,7 @@ bool Member::rateOccupier(Member *occupier)
     cin >> points;
     Rating *rate = new Rating(comment, points);
     occupier->ratings.push_back(rate);
+    return true;
 }
 
 void Member::createRequest(House *house)
@@ -135,7 +138,7 @@ void Member::viewAllRequest(House *house)
 
 bool Member::acceptRequest(House *house, Request *request)
 {
-    if (house->occupierID == NULL)
+    if (!house->occupierID)
     {
         house->occupierID = request->requesterID;
         return true;
@@ -148,11 +151,15 @@ void Member::searchHouse(string address)
     cout << "Available Houses : " << endl;
     for (House *house : this->memberHouse)
     {
-        if (address == house->address && this->credits == house->CPD 
-        && this->selfRating == house->minOccupierRating)
+        if (address == house->address && this->credits == house->CPD && this->selfRating == house->minOccupierRating)
         {
             cout << "House ID : " << house->houseID << endl;
             cout << "house address : " << house->address << endl;
         }
     }
+}
+
+int main()
+{
+    cout << "heloo";
 }
