@@ -22,10 +22,10 @@ string memberOptions(string option)
     cout << "                Enter your choice (1-5)\n";
     cout << endl;
     cout << "1: View personal information.\n"
-         << "2: Listing the Available house for being occupied.\n"
+         << "2: Add a house.\n"
          << "3: Search the suitable houses.\n"
-         << "4: Request to occupy a house.\n"
-         << "5: View the House Occupied.\n";
+         << "4: Rate the House Occupied.\n"
+         << "5: Manage a house.\n";
     cout << endl;
     cout << "Press any key to exit the program" << endl;
     cin >> option;
@@ -67,11 +67,12 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                 }
                 if (option == "4")
                 {
-
-                    // member->createRequest();
+                    // rateOccupiedHouse()
                 }
                 if (option == "5")
                 {
+                    // manageHouseMenu(houseID);
+
                 }
                 option = memberOptions(option);                
             }
