@@ -25,7 +25,8 @@ string memberOptions(string option)
          << "2: Add a house.\n"
          << "3: Search the suitable houses.\n"
          << "4: Rate the House Occupied.\n"
-         << "5: Manage a house.\n";
+         << "5: View request of a house you own.\n"
+         << "6: Request to occupy a house.\n";
     cout << endl;
     cout << "Press any key to exit the program" << endl;
     cin >> option;
@@ -79,8 +80,17 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                 }
                 if (option == "5")
                 {
-                    // manageHouseMenu(houseID);
-
+                    int houseID;
+                    cout << "Enter the house id of the house you want to view requests: " << endl;
+                    cin >> houseID;
+                    for (House *house : member->getAllHouses()) {
+                        if (house->getHouseID() == houseID) {
+                            cout << "Here are the requests for your house with id: " << houseID << endl;
+                            for (Request *request: *house->getRequests()){
+                                cout << request << endl;
+                            }
+                        }
+                    }
                 }
                 option = memberOptions(option);                
             }
