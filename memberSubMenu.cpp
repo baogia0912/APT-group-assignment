@@ -101,7 +101,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                             }
                         }
                     }
-                }
+                }       
                 if (option == "5")
                 {
                     // view request
@@ -139,7 +139,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                         }
                     }
                 }
-
+            // enter house id  -> add rating for occupy 
             }
         }
     }
