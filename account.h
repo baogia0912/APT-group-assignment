@@ -10,12 +10,16 @@ class Account
 {
 private:
     string password;
+    string username;
 
 public:
-    string username;
 
     Account();
     Account(string username, string password);
+
+    string getPassword();
+    string getUsername();
+    void setUsername(string username);
 
     bool verifyPass(string password);
     friend class Admin;

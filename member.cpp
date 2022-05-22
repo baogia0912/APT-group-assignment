@@ -32,25 +32,9 @@ vector<House*> Member::getAllHouses() {
     return this->houses;
 }
 
-void Member::setCPD(int num, House *targetHouse)
-{
-    for (House *house : houses)
-    {
-        if (targetHouse == house)
-        {
-            house->CPD = num;
-        }
-        else
-        {
-            cout << "The house is not available";
-            break;
-        }
-    }
-}
-
 bool Member::createHouseRating(House *house)
 {
-    if (house != nullptr && house->occupierID == this->id)
+    if (house != nullptr && house->getOccupierID() == this->id)
     {
         string comment;
         double points;
@@ -68,7 +52,7 @@ bool Member::createHouseRating(House *house)
 bool Member::rateOccupier(Member *occupier)
 {
     for (House* house : this->houses) {
-        if (occupier != nullptr && house->occupierID == occupier->getID())
+        if (occupier != nullptr && house->getOccupierID() == occupier->getID())
         {
             double points;
             string comment;
@@ -115,8 +99,8 @@ void Member::listAvailableHouse()
 {
     for (House *house : this->houses)
     {
-        cout << "CPD :" << house->CPD << endl;
-        cout << "Min Rating requirement : " << house->minOccupierRating << endl;
+        cout << "CPD :" << house->getCPD() << endl;
+        cout << "Min Rating requirement : " << house->getMinOccupierRating() << endl;
     }
 };
 
@@ -133,9 +117,9 @@ void Member::viewAllRequest(House *house)
 
 bool Member::acceptRequest(House *house, Request *request)
 {
-    if (!house->occupierID)
+    if (!house->getOccupierID())
     {
-        house->occupierID = request->getRequesterID();
+        house->setOccupierID(request->getRequesterID());
         return true;
     }
     return false;
@@ -146,10 +130,10 @@ void Member::searchHouse(string address)
     cout << "Available Houses : " << endl;
     for (House *house : this->houses)
     {
-        if (address == house->address && this->credits == house->CPD && this->selfRating == house->minOccupierRating)
+        if (address == house->getAddress() && this->credits == house->getCPD() && this->selfRating == house->getMinOccupierRating())
         {
-            cout << "House ID : " << house->houseID << endl;
-            cout << "house address : " << house->address << endl;
+            cout << "House ID : " << house->getHouseID() << endl;
+            cout << "house address : " << house->getAddress() << endl;
         }
     }
 }

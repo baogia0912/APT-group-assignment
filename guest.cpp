@@ -15,7 +15,7 @@ Member *Guest::signUp(vector<Member>* members)
 
     for (Member mem : *members)
     {
-        if (username == mem.getAccount().username)
+        if (username == mem.getAccount().getUsername())
         {
             cout << "This username is already existed! Please try sign up again." << endl;
             return nullptr;
@@ -44,10 +44,10 @@ void Guest::viewHouseDetails(vector<House> houseList)
 
     for (House house : houseList)
     {
-        cout << "House ID : " << house.houseID << endl;
-        cout << "House Address : " << house.address << endl;
-        cout << "Description : " << house.description << endl;
-        cout << "Credit Per Day : " << house.CPD << endl;
+        cout << "House ID : " << house.getHouseID() << endl;
+        cout << "House Address : " << house.getAddress() << endl;
+        cout << "Description : " << house.getDescription() << endl;
+        cout << "Credit Per Day : " << house.getCPD() << endl;
     }
 }
 #endif // !GUEST_CPP

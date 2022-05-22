@@ -1,7 +1,4 @@
 #include "admin.h"
-#ifndef OPTION
-#define OPTION 0
-#endif
 
 // Menu for admin;
 /*
@@ -12,7 +9,7 @@ Option 2: View all house;
 
 void menuForAdmin()
 {
-    int OPTION;
+    int option;
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";
     cout << "===================================================== \n";

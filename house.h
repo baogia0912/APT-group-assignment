@@ -9,19 +9,31 @@ private:
     vector<Period *> availablePeriods;
     vector<Rating *> ratings;
     vector<Request *> requests;
-
-public:
     double minOccupierRating;
     string address;
     string houseID;
     string description;
     int CPD;
     int occupierID;
+
+public:
+    
     House();
     House(int houseID, string address, string description, int CPD);
     House(int houseID, string address, string description, int CPD, double minOccupierRating, int occupierID);
 
-    
+    double getMinOccupierRating();
+    void setMinOccupierRating(double minOccupierRating);
+    string getAddress();
+    void setAddress(string address);
+    string getHouseID();
+    void setHouseID(string houseID);
+    string getDescription();
+    void setDescription(string description);
+    int getCPD();
+    void setCPD(int CPD);
+    int getOccupierID();
+    void setOccupierID(int occupierID);
 
     vector<Period *> getPeriods();
     void setPeriods(vector<Period *> periods);

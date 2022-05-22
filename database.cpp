@@ -47,12 +47,12 @@ void writeAllData(vector<Admin> *adminList, vector<Member> *memberList)
         members[i]["password"] = (*memberList)[i].getAccount().password;
         for (int j = 0; j < ((*memberList)[i].getAllHouses()).size(); j++)
         {
-            members[i]["house_list"][j]["house_id"] = (*memberList)[i].getAllHouses()[j]->houseID;
-            members[i]["house_list"][j]["address"] = (*memberList)[i].getAllHouses()[j]->address;
-            members[i]["house_list"][j]["description"] = (*memberList)[i].getAllHouses()[j]->description;
-            members[i]["house_list"][j]["cpd"] = (*memberList)[i].getAllHouses()[j]->CPD;
-            members[i]["house_list"][j]["occupier_id"] = (*memberList)[i].getAllHouses()[j]->occupierID;
-            members[i]["house_list"][j]["min_occupier_rating"] = (*memberList)[i].getAllHouses()[j]->minOccupierRating;
+            members[i]["house_list"][j]["house_id"] = (*memberList)[i].getAllHouses()[j]->getHouseID();
+            members[i]["house_list"][j]["address"] = (*memberList)[i].getAllHouses()[j]->getAddress();
+            members[i]["house_list"][j]["description"] = (*memberList)[i].getAllHouses()[j]->getDescription();
+            members[i]["house_list"][j]["cpd"] = (*memberList)[i].getAllHouses()[j]->getCPD();
+            members[i]["house_list"][j]["occupier_id"] = (*memberList)[i].getAllHouses()[j]->getOccupierID();
+            members[i]["house_list"][j]["min_occupier_rating"] = (*memberList)[i].getAllHouses()[j]->getMinOccupierRating();
             for (int k = 0 ; k < (*memberList)[i].getAllHouses()[j]->getRequests().size(); k ++) 
             {
                 members[i]["house_list"][j]["request_list"][k]["requester_id"] = (*memberList)[i].getAllHouses()[j]->getRequests()[k]->getRequesterID();            
