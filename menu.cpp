@@ -37,8 +37,8 @@ void menu()
         }
         if (option == "2")
         {
-
-            menuForMember(logInAsMember(members), &members, &houses);
+            
+            menuForMember(logInAsMember(members),&members,&houses);
         }
         if (option == "3")
         {

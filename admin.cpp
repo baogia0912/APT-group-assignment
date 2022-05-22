@@ -21,20 +21,21 @@ int Admin::getID()
 
 void Admin::viewAllMember(vector<Member> *members)
 {
-    for (Member mem : *members)
-    {
-        cout << "ID : " << mem.getID() << endl;
-        cout << "Username : " << mem.getAccount().getUsername() << endl;
-        cout << "Password : " << mem.getAccount().getPassword() << endl;
-        cout << "Creadits : " << mem.getCreadit() << endl;
-        cout << "Self Rating : " << mem.getAverageSelfRating(mem.getRatings()) << endl;
-        for (House *house : mem.getAllHouses())
-        {
-            cout << "House ID " << house->getHouseID() << endl;
-            cout << "House address " << house->getAddress() << endl;
-            cout << endl;
-        }
-    }
+    // for (Member mem : *members)
+    // {
+    //     cout << "ID : " << mem.getID() << endl;
+    //     cout << "Username : " << mem.getAccount().getUsername() << endl;
+    //     cout << "Password : " << mem.getAccount().getPassword() << endl;
+    //     cout << "Creadits : " << mem.getCreadit() << endl;
+    //     cout << "Self Rating : " << mem.getAverageSelfRating(mem.getRatings()) << endl;
+    //     for (House *house : mem.getAllHouses())
+    //     {
+    //         cout << "House ID " << house->getHouseID() << endl;
+    //         cout << "House address " << house->getAddress() << endl;
+    //         cout << endl;
+    //     }
+    // }
+    for (Member member : *members) cout << member;
 }
 
 void Admin::viewAllHouse(vector<House> *houseList)
@@ -65,7 +66,5 @@ void Admin::viewAllHouse(vector<House> *houseList)
 
     //     cout << endl;
     // }
-    for (House house : *houseList) {
-        cout << house;
-    }
+    for (House house: *houseList) cout << house;
 }

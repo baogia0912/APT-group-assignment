@@ -32,78 +32,93 @@ string memberOptions(string option)
     return option;
 }
 
-void menuForMember(Member *member, vector<Member> *members, vector<House> *houses)
+void menuForMember(int member_id, vector<Member> *members, vector<House> *houses)
 {
-    string option;
-    option = memberOptions(option);
-    while (option == "1" || option == "2" || option == "3" || option == "4" ||
-           option == "5")
+    if (member_id == NULL)
     {
-        if (option == "1")
+        cout << "Failed to login!" << endl;
+        return;
+    }
+    Member *member;
+    for (Member mem : *members)
+    {
+        if (mem.getID() == member_id)
         {
-            member->viewPersonalInformation();
-        }
-
-        if (option == "2")
-        {
-            member->listAvailableHouse();
-        }
-        if (option == "3")
-        {
-            string address;
-            cout << "Enter an address";
-            cin >> address;
-            member->searchHouse(address);
-        }
-        if (option == "4")
-        {
-            string startDate, endDate, address;
-            Period *tmpPeriod;
-            cin >> startDate;
-            cin >> endDate;
-            cin >> address;
-            tmpPeriod->setStartDate(startDate);
-            tmpPeriod->setEndDate(endDate);
-            for (int i = 0; i < houses->size(); i++)
+            member = &mem;
+            string option;
+            option = memberOptions(option);
+            while (option == "1" || option == "2" || option == "3" || option == "4" ||
+                   option == "5")
             {
-                if (address == (*houses)[i].getAddress())
+                if (option == "1")
                 {
-                    for (int j = 0; j < (*houses)[i].getPeriods()->size(); j++)
+                    cout << *member;
+                }
+
+                if (option == "2")
+                {
+                    member->listAvailableHouse();
+                }
+                if (option == "3")
+                {
+                    string address;
+                    cout << "Enter an address";
+                    cin >> address;
+                    member->searchHouse(address);
+                }
+                if (option == "4")
+                {
+                    string startDate, endDate, address;
+                    Period *tmpPeriod;
+                    cin >> startDate;
+                    cin >> endDate;
+                    cin >> address;
+                    tmpPeriod->setStartDate(startDate);
+                    tmpPeriod->setEndDate(endDate);
+                    for (int i = 0; i < houses->size(); i++)
                     {
-                        if ((*(*houses)[i].getPeriods())[j] == tmpPeriod)
+                        if (address == (*houses)[i].getAddress())
                         {
-                            member->createRequest(&(*houses)[i]);
+                            for (int j = 0; j < (*houses)[i].getPeriods()->size(); j++)
+                            {
+                                if ((*(*houses)[i].getPeriods())[j] == tmpPeriod)
+                                {
+                                    member->createRequest(&(*houses)[i]);
+                                }
+                            }
                         }
                     }
                 }
-            }
-        }
-        if (option == "5")
-        {
-            int id;
-            cout << "Enter ID of the house you want to view request " << endl;
-            cin >> id;
-            for (House house : *houses)
-            {
-                if (house.getHouseID() == id)
+                if (option == "5")
                 {
-                    for (Rating *rating : *(house.getRatings()))
-                        cout << rating;
+                    int id;
+                    cout << "Enter ID of the house you want to view request " << endl;
+                    cin >> id;
+                    for (House house : *houses)
+                    {
+                        if (house.getHouseID() == id)
+                        {
+                            for (Rating *rating : *(house.getRatings()))
+                                cout << rating;
+                        }
+                    }
+                }
+                if (option == "6")
+                {
+                    // accept request
+                }
+                if (option == "7")
+                {
+                    // rate member's occupied house
+                }
+                if (option == "8")
+                {
+                    // rate the occupiers (owners)
+                    string username;
+                    int id;
+                    cout << "";
                 }
             }
         }
-        if (option == "6") {
-            //accept request
-        }
-        if (option == "7") {
-            //rate member's occupied house
-        }
-        if (option == "8") {
-            //rate the occupiers (owners)
-            string username;
-            int id;
-            cout << "";
-        }
-
     }
 }

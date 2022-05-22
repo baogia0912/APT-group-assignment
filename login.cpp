@@ -7,7 +7,7 @@ Guest *logInAsGuest()
     return new Guest();
 }
 
-Member *logInAsMember(vector<Member> members)
+int logInAsMember(vector<Member> members)
 {
     Member *member;
     string userName;
@@ -16,20 +16,19 @@ Member *logInAsMember(vector<Member> members)
     cin >> userName;
 
     for (Member mem : members)
-    {
-        if (userName == mem.getAccount().getUsername())
+    {   
+        if (userName == mem.getAccount().getUsername()) {
             member = &mem;
+            cout << "Enter password : " << endl;
+            cin >> password;
+            if (member->getAccount().verifyPass(password)) {
+                return member->getID();
+            }
+            else
+                return NULL;
+        }
     }
-    if (member == nullptr)
-        return member;
-
-    cout << "Enter password : " << endl;
-    cin >> password;
-
-    if (member->getAccount().verifyPass(password))
-        return member;
-    else
-        return nullptr;
+    return NULL;
 }
 
 Admin *logInAsAdmin(vector<Admin> admins)

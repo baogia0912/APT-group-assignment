@@ -42,12 +42,6 @@ vector<House *> Member::getAllHouses()
     return this->houses;
 }
 
-void Member::viewPersonalInformation()
-{
-    cout << "User ID : " << this->getID() << endl;
-    cout << "Average rating : " << this->getAverageSelfRating(this->getRatings()) << endl;
-}
-
 bool Member::createHouseRating(House *house)
 {
     if (house != nullptr && house->getOccupierID() == this->id)
