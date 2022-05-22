@@ -44,8 +44,8 @@ void writeAllData(vector<Admin> *adminList, vector<Member> *memberList)
     string userName, password;
 
     json members, admins;
-    ofstream member_file("members1.json", ofstream::binary);
-    ofstream admin_file("admin1.json", ofstream::binary);
+    ofstream member_file("members.json", ofstream::binary);
+    ofstream admin_file("admins.json", ofstream::binary);
 
     for (int i = 0; i < memberList->size(); i++)
     {

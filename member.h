@@ -32,6 +32,7 @@ public:
     bool rateOccupier(Member *occupier);
     void searchHouse(string address);
     int getCreadit();
+    void addhouse (House *house) ;
     vector <Rating*> getRatings();
     void viewPersonalInformation();
 

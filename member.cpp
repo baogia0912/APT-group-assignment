@@ -29,7 +29,7 @@ vector<Rating *> Member::getRatings()
 
 int Member::getID()
 {
-    return id;
+    return this->id;
 }
 
 void Member::addHouse(House *house)
@@ -41,6 +41,12 @@ vector<House *> Member::getAllHouses()
 {
     return this->houses;
 }
+
+void Member::addhouse (House *house) {
+    this->houses.push_back(house);
+
+}
+
 
 bool Member::createHouseRating(House *house)
 {

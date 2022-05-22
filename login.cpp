@@ -25,10 +25,10 @@ int logInAsMember(vector<Member> members)
                 return member->getID();
             }
             else
-                return NULL;
+                return 0;
         }
     }
-    return NULL;
+    return 0;
 }
 
 Admin *logInAsAdmin(vector<Admin> admins)

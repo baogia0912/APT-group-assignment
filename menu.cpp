@@ -36,8 +36,7 @@ void menu()
             menuForGuest(logInAsGuest(), &members, &houses);
         }
         if (option == "2")
-        {
-            
+        {   
             menuForMember(logInAsMember(members),&members,&houses);
         }
         if (option == "3")

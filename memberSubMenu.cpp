@@ -35,11 +35,6 @@ string memberOptions(string option)
 
 void menuForMember(int member_id, vector<Member> *members, vector<House> *houses)
 {
-    if (member_id == NULL)
-    {
-        cout << "Failed to login!" << endl;
-        return;
-    }
     Member *member;
     for (Member mem : *members)
     {
@@ -60,8 +55,19 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                 { // add house
                     string address, descripion;
                     double CPD;
+                    cout << "Enter your house address" << endl;
+                    cin >> address;
+                    cout << "Enter the description" << endl;
+                    cin >> descripion;
+                    cout << "Enter the CPD" << endl;
+                    cin >> CPD;
                     House *newHouse = new House(nextID(houses), address, descripion, CPD);
-                    houses->push_back(*newHouse);
+                    member->addHouse(newHouse);
+                    // cout << "printing houses"<<endl;
+                    // for (House *house : member->addHouse(newHouse)){
+                    //     cout << house->getAddress();
+
+                    // }
                 }
                 if (option == "3")
                 { // search house;
@@ -166,6 +172,8 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                         }
                     }
                 }
+                option = memberOptions(option);
+
             }
         }
     }
