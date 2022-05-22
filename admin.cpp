@@ -50,6 +50,18 @@ void Admin::viewAllHouse(vector<House> *houseList)
                  << "from " << request->getPeriod().getStartDate() << endl
                  << " to " << request->getPeriod().getEndDate() << endl;
         }
+        cout << endl;
+        for (Rating *rating : *house.getRatings())
+        {
+            cout << "Rating : " << rating->getComment() << endl;
+            cout << "Comment : " << rating->getRating() << endl;
+        }
+        cout << endl;
+        for (Period *period : *house.getPeriods())
+        {
+            cout << "From " << period->getStartDate() << " to "
+                 << period->getEndDate() << endl;
+        }
 
         cout << endl;
     }
