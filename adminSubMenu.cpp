@@ -17,6 +17,11 @@ string adminOptions(string option)
 
 void menuForAdmin(Admin *admin, vector<Member> *members, vector<House> *houses)
 {
+    if (admin == nullptr) {
+        cout << "Failed to login!" << endl;
+        return;
+    }
+
     string option;
     option = adminOptions(option);
     while (option == "1" || option == "2")

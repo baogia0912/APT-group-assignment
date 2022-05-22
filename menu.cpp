@@ -2,7 +2,7 @@
 #include "database.cpp"
 #include "guestSubMenu.cpp"
 #include "adminSubMenu.cpp"
-// #include "memberSubMenu.cpp"
+#include "memberSubMenu.cpp"
 vector<House> houses;
 vector<Admin> admins;
 vector<Member> members;
@@ -37,8 +37,8 @@ void menu()
         }
         if (option == "2")
         {
-
-            //menuForMember(logInAsMember(members),&members,&houses);
+            
+            menuForMember(logInAsMember(members),&members,&houses);
         }
         if (option == "3")
         {

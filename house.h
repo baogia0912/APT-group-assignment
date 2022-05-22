@@ -54,9 +54,9 @@ ostream &operator<<(ostream &os, const House &dt)
        << "Occupier ID : " << dt.occupierID << endl
        << "Occupier requirement rate : " << dt.minOccupierRating << endl
        << "CPD : " << dt.CPD << endl;
-       for (Period* period : dt.availablePeriods) os << period;
-       for (Rating* rating : dt.ratings) os << rating;
-       for (Request* request : dt.requests) os << request;
+       for (Period* period : dt.availablePeriods) os << *period << endl;
+       for (Rating* rating : dt.ratings) os << *rating << endl;
+       for (Request* request : dt.requests) os << *request << endl;
     return os;
 };
 

@@ -25,5 +25,6 @@ ostream &operator<<(ostream &os, const Rating &dt)
 {
     os << "Rating : " << dt.rating << endl
        << "Comment : " << dt.comment << endl;
+    return os;
 }
 #endif

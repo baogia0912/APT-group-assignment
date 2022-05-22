@@ -32,36 +32,50 @@ string memberOptions(string option)
     return option;
 }
 
-void menuForMember(Member *member, vector<Member> *members, vector<House> *houses)
+void menuForMember(int member_id, vector<Member> *members, vector<House> *houses)
 {
-    string option;
-    option = memberOptions(option);
-    while (option == "1" || option == "2" || option == "3" || option == "4" ||
-           option == "5")
-    {
-        if (option == "1")
-        {
-            member->viewPersonalInformation();
-        }
+    if (member_id == NULL) {
+        cout << "Failed to login!" << endl;
+        return;
+    }
+    Member * member;
+    for (Member mem : *members) {
+        if (mem.getID() == member_id) {
+            member = &mem;
+        
 
-        if (option == "2")
-        {
-            member->listAvailableHouse();
-        }
-        if (option == "3")
-        {
-            string address;
-            cout << "Enter an address";
-            cin >> address;
-            member->searchHouse(address);
-        }
-        if (option == "4")
-        {
+            string option;
+            option = memberOptions(option);
+            while (option == "1" || option == "2" || option == "3" || option == "4" ||
+                option == "5")
+            {
+                if (option == "1")
+                {
+                    cout << *member;
+                }
 
-            member->createRequest();
+                if (option == "2")
+                {
+                    // member->listAvailableHouse();
+                }
+                if (option == "3")
+                {
+                    // string address;
+                    // cout << "Enter an address";
+                    // cin >> address;
+                    // member->searchHouse(address);
+                }
+                if (option == "4")
+                {
+
+                    // member->createRequest();
+                }
+                if (option == "5")
+                {
+                }
+                option = memberOptions(option);                
+            }
         }
-        if (option == "5")
-        {
-        }
+        break;
     }
 }

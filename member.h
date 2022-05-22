@@ -40,9 +40,13 @@ public:
 
 ostream& operator<<(ostream& os, const Member& mem)
 {
-    os << "Member ID : " << mem.id
-       << "\nMember rating : " << mem.selfRating
-       << "\nMember creadit : " << mem.credits;
+    os  << "Member ID : " << mem.id << endl
+        << "Member rating : " << mem.selfRating << endl
+        << "Member creadit : " << mem.credits << endl
+        << "Username : " << mem.acc->getUsername() << endl
+        << "Password : " << mem.acc->getPassword() << endl;
+        for (Rating *rating : mem.ratings) os << *rating << endl;
+        for (House *house : mem.houses) os << *house << endl;
     return os;
 };
 
