@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "member.h"
+#include "house.h"
 using namespace std;
 
 int nextID(vector<Member> members) {
@@ -9,6 +10,17 @@ int nextID(vector<Member> members) {
     {
         if (mem.getID() > highestID)
             highestID = mem.getID();
+    }
+    return ++highestID;
+}
+
+
+int nextID(vector<House> *houses) {
+    int highestID = 0;
+    for (House house : *houses)
+    {
+        if (house.getHouseID() > highestID)
+            highestID = house.getHouseID();
     }
     return ++highestID;
 }

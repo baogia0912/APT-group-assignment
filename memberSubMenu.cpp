@@ -1,5 +1,5 @@
 #include "member.h"
-
+#include "ulimit.h"
 // Menu for member;
 /*
 Option 1: View them information.
@@ -22,10 +22,10 @@ string memberOptions(string option)
     cout << "                Enter your choice (1-5)\n";
     cout << endl;
     cout << "1: View personal information.\n"
-         << "2: Listing the Available house for being occupied.\n"
+         << "2: Add a house.\n"
          << "3: Search the suitable houses.\n"
-         << "4: Request to occupy a house.\n"
-         << "5: View the House requests.\n";
+         << "4: Rate the House Occupied.\n"
+         << "5: Manage a house.\n";
     cout << endl;
     cout << "Press any key to exit the program" << endl;
     cin >> option;
@@ -56,18 +56,22 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                 }
 
                 if (option == "2")
-                {
-                    member->listAvailableHouse();
+                { // add house
+                    string address,descripion;
+                    double CPD;
+                    House *newHouse = new House (nextID(houses),address,descripion,CPD);
+                    houses->push_back(*newHouse);
                 }
                 if (option == "3")
-                {
+                {   
                     string address;
                     cout << "Enter an address";
                     cin >> address;
                     member->searchHouse(address);
                 }
                 if (option == "4")
-                {
+                {   
+                    //request house;
                     string startDate, endDate, address;
                     Period *tmpPeriod;
                     cin >> startDate;
@@ -90,7 +94,8 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     }
                 }
                 if (option == "5")
-                {
+                {   
+                    //view request
                     int id;
                     cout << "Enter ID of the house you want to view request " << endl;
                     cin >> id;
@@ -117,6 +122,11 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     string username;
                     int id;
                     cout << "";
+                    // rateOccupiedHouse()
+                }
+                if (option == "5")
+                {
+                    // manageHouseMenu(houseID);
                 }
             }
         }
