@@ -47,7 +47,7 @@ void Member::addhouse (House *house) {
 
 }
 
-
+// create the rating for house
 bool Member::createHouseRating(House *house)
 {
     if (house != nullptr && house->getOccupierID() == this->id)
@@ -65,7 +65,7 @@ bool Member::createHouseRating(House *house)
     }
     return false;
 }
-
+// rate the occupier
 bool Member::rateOccupier(Member *occupier)
 {
     for (House *house : this->houses)
@@ -87,7 +87,7 @@ bool Member::rateOccupier(Member *occupier)
     }
     return false;
 }
-
+//create request
 void Member::createRequest(House *house)
 {
     // ask for start date and end date here
@@ -97,6 +97,7 @@ void Member::createRequest(House *house)
     house->getRequests()->push_back(new Request(this->id, period));
 }
 
+//calculate his/her own average points from the rating list
 double Member::getAverageSelfRating()
 {
     double points;
@@ -106,12 +107,13 @@ double Member::getAverageSelfRating()
     }
     return points / ratings.size();
 }
-
+//ad create dit when first signUp
 void Member::addCredit(int num)
 {
     this->credits = num;
 };
 
+//list all the house that are available to occupy
 void Member::listAvailableHouse()
 {
     for (House *house : this->houses)
@@ -121,6 +123,7 @@ void Member::listAvailableHouse()
     }
 };
 
+//view all the house request
 void Member::viewAllRequest(House *house)
 {
     for (Request *request : (*house->getRequests()))
@@ -131,7 +134,7 @@ void Member::viewAllRequest(House *house)
              << " to " << request->getPeriod().getEndDate() << endl;
     }
 }
-
+//accept the request from another member through the request list
 bool Member::acceptRequest(House *house, Request *request)
 {
     if (!house->getOccupierID())
@@ -147,7 +150,7 @@ bool Member::acceptRequest(House *house, Request *request)
     }
     return true;
 }
-
+//search the suitable house from the address
 void Member::searchHouse(string address)
 {
     cout << "Available Houses : " << endl;

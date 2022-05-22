@@ -6,7 +6,7 @@ Guest *logInAsGuest()
 {
     return new Guest();
 }
-
+//login as member
 int logInAsMember(vector<Member> members)
 {
     Member *member;
@@ -30,7 +30,7 @@ int logInAsMember(vector<Member> members)
     }
     return 0;
 }
-
+//log in as admin 
 Admin *logInAsAdmin(vector<Admin> admins)
 {        
 

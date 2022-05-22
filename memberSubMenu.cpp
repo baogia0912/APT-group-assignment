@@ -1,19 +1,6 @@
 #include "member.h"
 #include "ulimit.h"
-// Menu for member;
-/*
-Option 1: View them information.
-Option 2: List the available house for being occupied.
-Option 3: Search all available house
-        Request to occupy a house
-Option 4: View the listed house.
-        Accept a request.
-        Or no.
-Option 5: View the house occupy.
-        Score the occupied house.
-        Comment the Occuppied house.
 
-*/
 string memberOptions(string option)
 {
     cout << "===================================================== \n";
@@ -26,13 +13,14 @@ string memberOptions(string option)
          << "3: Search the suitable houses.\n"
          << "4: Rate the House Occupied.\n"
          << "5: View request of a house you own.\n"
-         << "6: Request to occupy a house.\n";
+         << "6: Request to occupy a house.\n"
+         << "7: Add rating to the occupier.\n";
     cout << endl;
     cout << "Press any key to exit the program" << endl;
     cin >> option;
     return option;
 }
-
+//menu for the member
 void menuForMember(int member_id, vector<Member> *members, vector<House> *houses)
 {
     Member *member;
@@ -63,11 +51,6 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     cin >> CPD;
                     House *newHouse = new House(nextID(houses), address, descripion, CPD);
                     member->addHouse(newHouse);
-                    // cout << "printing houses"<<endl;
-                    // for (House *house : member->addHouse(newHouse)){
-                    //     cout << house->getAddress();
-
-                    // }
                 }
                 if (option == "3")
                 { // search house;
@@ -80,6 +63,46 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                             cout << house << endl;
                     }
                 }
+                if (option == "4")
+                {
+                    // create rating
+                    string comment;
+                    double rating;
+                    int id;
+                    cout << "Choose the house ID " << endl;
+                    cin >> id;
+                    cout << "Enter your comment" << endl;
+                    cin >> comment;
+                    cout << "Enter your points" << endl;
+                    cin >> rating;
+                    Rating *newRating = new Rating(rating, comment);
+                    for (House house : *houses)
+                    {
+                        if ((house.getOccupierID() == member->getID()) &&
+                            house.getHouseID() == id)
+                        {
+                            house.getRatings()->push_back(newRating);
+                        }
+                    }
+                }
+
+                if (option == "5")
+                {
+
+                    // view request
+                    int id;
+                    cout << "Enter ID of the house you want to view request " << endl;
+                    cin >> id;
+                    for (House house : *houses)
+                    {
+                        if (house.getHouseID() == id)
+                        {
+                            for (Request *request : *(house.getRequests()))
+                                cout << request;
+                        }
+                    }
+                }
+
                 if (option == "6")
                 {
                     // request house;
@@ -109,44 +132,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                         }
                     }
                 }
-                if (option == "5")
-                {
 
-                    // view request
-                    int id;
-                    cout << "Enter ID of the house you want to view request " << endl;
-                    cin >> id;
-                    for (House house : *houses)
-                    {
-                        if (house.getHouseID() == id)
-                        {
-                            for (Request *request : *(house.getRequests()))
-                                cout << request;
-                        }
-                    }
-                }
-                if (option == "4")
-                {
-                    // create rating
-                    string comment;
-                    double rating;
-                    int id;
-                    cout << "Choose the house ID " << endl;
-                    cin >> id;
-                    cout << "Enter your comment" << endl;
-                    cin >> comment;
-                    cout << "Enter your points" << endl;
-                    cin >> rating;
-                    Rating *newRating = new Rating(rating, comment);
-                    for (House house : *houses)
-                    {
-                        if ((house.getOccupierID() == member->getID()) &&
-                            house.getHouseID() == id)
-                        {
-                            house.getRatings()->push_back(newRating);
-                        }
-                    }
-                }
                 // enter house id  -> add rating for occupy
                 if (option == "7")
                 {
@@ -173,7 +159,6 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     }
                 }
                 option = memberOptions(option);
-
             }
         }
     }

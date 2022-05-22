@@ -3,7 +3,7 @@
 #include "member.h"
 #include "house.h"
 using namespace std;
-
+//function to calculate nex ID for member 
 int nextID(vector<Member> members) {
     int highestID = 0;
     for (Member mem : members)
@@ -15,6 +15,7 @@ int nextID(vector<Member> members) {
 }
 
 
+//function to calculate next ID for houses
 int nextID(vector<House> *houses) {
     int highestID = 0;
     for (House house : *houses)

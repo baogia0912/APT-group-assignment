@@ -14,20 +14,20 @@ string adminOptions(string option)
     cin >> option;
     return option;
 }
-
+//menu for admin 
 void menuForAdmin(Admin *admin, vector<Member> *members, vector<House> *houses)
 {
     if (admin == nullptr) {
         cout << "Failed to login!" << endl;
         return;
     }
-
+    //option for admin
     string option;
     option = adminOptions(option);
     while (option == "1" || option == "2")
     {
         if (option == "1")
-        {
+        {   
             admin->viewAllMember(members);
         }
         if (option == "2")

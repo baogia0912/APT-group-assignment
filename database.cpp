@@ -4,7 +4,7 @@
 #include <fstream>
 #include "json.hpp"
 using json = nlohmann::json;
-
+//read data from json file
 void getAllData(vector<Admin> *adminList, vector<Member> *memberList, vector<House> *houseList)
 {   Member * tempMember;
     House * tempHouse;
@@ -38,7 +38,7 @@ void getAllData(vector<Admin> *adminList, vector<Member> *memberList, vector<Hou
         memberList->push_back(*tempMember);
     }
 }
-
+//write data in json file
 void writeAllData(vector<Admin> *adminList, vector<Member> *memberList)
 {
     string userName, password;

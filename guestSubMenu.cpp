@@ -1,5 +1,6 @@
 #include "guest.cpp"
 
+//menu for gues
 string guestOptions(string option) {
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";

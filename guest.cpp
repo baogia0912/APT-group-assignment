@@ -5,6 +5,8 @@
 
 Guest::Guest(){};
 
+
+
 Member *Guest::signUp(vector<Member>* members)
 {
     string username;
@@ -33,12 +35,13 @@ Member *Guest::signUp(vector<Member>* members)
         cout << "The 2 passwords you enter are different! Please try sign up again." << endl;
         return nullptr;
     }
+    //sign up a new member;
     Member* newMember = new Member(nextID(*members), username, password1);
     newMember->addCredit(500);
     members->push_back(*newMember);
     return newMember;
 }
-
+//allow guess to view house basic information 
 void Guest::viewHouseDetails(vector<House> houseList)
 {
 

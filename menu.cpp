@@ -7,6 +7,8 @@ vector<House> houses;
 vector<Admin> admins;
 vector<Member> members;
 
+
+//menu for all options
 string menuOption(string option)
 {
     cout << "===================================================== \n";
