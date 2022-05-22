@@ -10,8 +10,12 @@ private:
 
 public:
     Request();
-    Request(Period period,int requesterID);
-    friend class Member;
+    Request(int requesterID, Period period);
+
+    Period getPeriod();
+    void setPeriod(Period period);
+    int getRequesterID();
+    void setRequesterID(int requesterID);
 };
 
 #endif

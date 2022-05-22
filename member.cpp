@@ -7,13 +7,6 @@
 #include "request.cpp"
 
 Member::Member(){};
-Member::Member(string username, string password)
-{
-#ifdef NEXTMEMBERID
-    this->id = NEXTMEMBERID++;
-#endif
-    this->acc = new Account(username, password);
-}
 Member::Member(int id, string username, string password)
 {
     this->id = id;
@@ -32,12 +25,16 @@ int Member::getID()
 
 void Member::addHouse(House *house)
 {
-    this->memberHouse.push_back(house);
+    this->houses.push_back(house);
+}
+
+vector<House*> Member::getAllHouses() {
+    return this->houses;
 }
 
 void Member::setCPD(int num, House *targetHouse)
 {
-    for (House *house : memberHouse)
+    for (House *house : houses)
     {
         if (targetHouse == house)
         {
@@ -51,64 +48,61 @@ void Member::setCPD(int num, House *targetHouse)
     }
 }
 
-void Member::housesListing()
+bool Member::createHouseRating(House *house)
 {
-
-    for (House *house : this->memberHouse)
+    if (house != nullptr && house->occupierID == this->id)
     {
-        if (house->availablePeriods.size() != 0)
-        {
-            cout << "House " << house->address;
-        }
+        string comment;
+        double points;
+        cout << "Please enter your comment";
+        cin >> comment;
+        cout << "Rating(-10 -> +10): ";
+        cin >> points;
+        if (points < -10 || points > 10) return false;
+        house->getRatings().push_back(new Rating(points, comment));
+        return true;
     }
-}
-
-void Member::createHouseRating(House *house)
-{
-    string comment;
-    double points;
-    cout << "Please enter your comment";
-    cin >> comment;
-    cout << "Rating ";
-    cin >> points;
-    Rating *rate = new Rating(comment, points);
-    house->houseRating.push_back(rate);
+    return false;
 }
 
 bool Member::rateOccupier(Member *occupier)
 {
-    double points;
-    string comment;
-    cout << "Please enter your comment";
-    cin >> comment;
-    cout << "Rating";
-    cin >> points;
-    Rating *rate = new Rating(comment, points);
-    occupier->ratings.push_back(rate);
-    return true;
+    for (House* house : this->houses) {
+        if (occupier != nullptr && house->occupierID == occupier->getID())
+        {
+            double points;
+            string comment;
+            cout << "Please enter your comment: ";
+            cin >> comment;
+            cout << "Rating(-10 -> +10): ";
+            cin >> points;
+            if (points < -10 || points > 10) return false;
+            Rating *rate = new Rating(points, comment);
+            occupier->ratings.push_back(rate);
+            return true;
+            
+        }
+    }
+    return false;
 }
 
 void Member::createRequest(House *house)
 {
-    int requesterId;
+    // ask for start date and end date here
     Period period;
-    period.setPeriod();
     // Period period(startDate, endDate);
     cout << "Enter your ID";
-    cin >> requesterId;
-    Request *request = new Request(period, requesterId);
-
-    house->requests.push_back(request);
+    house->getRequests().push_back(new Request(this->id, period));
 }
 
-double Member::CaluculateSelfRating(vector<Rating *> ratings)
+double Member::getAverageSelfRating(vector<Rating *> ratings)
 {
     double points;
     for (Rating *rate : ratings)
     {
-        points += rate->rating;
+        points += rate->getRating();
     }
-    this->selfRating = points;
+    this->selfRating = (points / ratings.size());
     return points;
 }
 
@@ -119,7 +113,7 @@ void Member::addCredit(int num)
 
 void Member::listAvailableHouse()
 {
-    for (House *house : this->memberHouse)
+    for (House *house : this->houses)
     {
         cout << "CPD :" << house->CPD << endl;
         cout << "Min Rating requirement : " << house->minOccupierRating << endl;
@@ -128,12 +122,12 @@ void Member::listAvailableHouse()
 
 void Member::viewAllRequest(House *house)
 {
-    for (Request *request : house->requests)
+    for (Request *request : house->getRequests())
     {
-        cout << "Requester ID : " << request->requesterID;
+        cout << "Requester ID : " << request->getRequesterID();
         cout << "Period : "
-             << "from" << request->period.getStartDate()
-             << " to " << request->period.getEndDate() << endl;
+             << "from" << request->getPeriod().getStartDate()
+             << " to " << request->getPeriod().getEndDate() << endl;
     }
 }
 
@@ -141,7 +135,7 @@ bool Member::acceptRequest(House *house, Request *request)
 {
     if (!house->occupierID)
     {
-        house->occupierID = request->requesterID;
+        house->occupierID = request->getRequesterID();
         return true;
     }
     return false;
@@ -150,7 +144,7 @@ bool Member::acceptRequest(House *house, Request *request)
 void Member::searchHouse(string address)
 {
     cout << "Available Houses : " << endl;
-    for (House *house : this->memberHouse)
+    for (House *house : this->houses)
     {
         if (address == house->address && this->credits == house->CPD && this->selfRating == house->minOccupierRating)
         {
@@ -159,4 +153,6 @@ void Member::searchHouse(string address)
         }
     }
 }
+
+
 #endif

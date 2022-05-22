@@ -21,7 +21,7 @@ int guestOptions(int option) {
     return option;
 }
 
-void menuForGuest(Guest* guest, vector<Member>* members) {
+void menuForGuest(Guest* guest, vector<Member>* members, vector<House>* houses) {
     int option;
     while(1) {
         option = guestOptions(option);
@@ -31,6 +31,7 @@ void menuForGuest(Guest* guest, vector<Member>* members) {
             if (guest->signUp(members) != nullptr) return;
             break;
         case 2:
+            guest->viewHouseDetails(*houses);
             break;
         default:
             return;

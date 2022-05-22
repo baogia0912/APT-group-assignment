@@ -11,13 +11,11 @@ private:
 
 public:
     Rating();
-    Rating(string comment, double rating);
-    friend class Admin;
-    friend class Member;
+    Rating(double rating, string comment);
+
+    double getRating();
+    void setRating(double rating);
+    string getComment();
+    void setComment(string comment);
 };
-
-
-
-
-
 #endif

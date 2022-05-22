@@ -1,6 +1,6 @@
-// #include "member.h"
-// #include "admin.h"
 #include "guest.cpp"
+
+using namespace std;
 
 Guest* logInAsGuest(){
     return new Guest();

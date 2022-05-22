@@ -20,7 +20,7 @@ public:
     bool verifyPass(string password);
     friend class Admin;
     friend class Member;
-    friend void writeAllData(vector<Admin> adminList, vector<Member> memberList);
+    friend void writeAllData(vector<Admin> *adminList, vector<Member> *memberList);
 };
 
 #endif

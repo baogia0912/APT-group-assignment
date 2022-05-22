@@ -4,6 +4,9 @@
 // #include "adminSubMenu.cpp"
 // #include "memberSubMenu.cpp"
 int option;
+vector<House> houses;
+vector<Admin> admins;
+vector<Member> members;
 
 int menuOption(int option) {
     cout << "===================================================== \n";
@@ -22,20 +25,9 @@ int menuOption(int option) {
 
 void menu()
 {
-    vector<House> houses;
-    vector<Admin> admins;
-    vector<Member> members;
+    
 
     getAllData(&admins,&members,&houses);
-
-    int highestID = 0;
-    for (Member mem : members)
-    {
-        if (mem.getID() > highestID)
-            highestID = mem.getID();
-    }
-    ++highestID;
-#define NEXTMEMBERID highestID
     while (1)
     {
         option = menuOption(option);
@@ -43,7 +35,7 @@ void menu()
         {
 
         case 1:
-            menuForGuest(logInAsGuest(), &members);
+            menuForGuest(logInAsGuest(), &members, &houses);            
             break;
         case 2:
             // if (logInAsMember(members))
@@ -63,11 +55,8 @@ void menu()
             cout << "                \tPROGRAM ENDED \n";
             cout << "===================================================== \n";
             cout << "          Thank you so much for your love\n";
+            writeAllData(&admins,&members);
             exit(0);
-            break;
         }
     }
-    
-
-    writeAllData(admins,members);
 }

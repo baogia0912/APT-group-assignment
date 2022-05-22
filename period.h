@@ -17,11 +17,11 @@ private:
     year_month_day endDate;
 public:
     Period();
-    Period(year_month_day startDate, year_month_day endDate);
-    void setStartDate(year_month_day start);
-    void setEndDate(year_month_day end);
-    year_month_day getStartDate();
-    year_month_day getEndDate();
+    Period(string startDate, string endDate);
+    void setStartDate(string start);
+    void setEndDate(string end);
+    string getStartDate();
+    string getEndDate();
     std::chrono::duration<int, std::ratio<86400, 1>> getGap();
     void setPeriod();
 };
