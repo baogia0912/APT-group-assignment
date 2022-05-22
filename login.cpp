@@ -18,7 +18,7 @@ Member *logInAsMember(vector<Member> members)
     for (Member mem : members)
     {
         if (userName == mem.getAccount().getUsername())
-            *member = mem;
+            member = &mem;
     }
     if (member == nullptr)
         return member;
@@ -33,7 +33,8 @@ Member *logInAsMember(vector<Member> members)
 }
 
 Admin *logInAsAdmin(vector<Admin> admins)
-{
+{        
+
     Admin *admin;
     string userName;
     string password;
@@ -42,7 +43,7 @@ Admin *logInAsAdmin(vector<Admin> admins)
     for (Admin ad : admins)
     {
         if (userName == ad.getAccount().getUsername())
-            *admin = ad;
+            admin = &ad;
     }
     if (admin == nullptr)
         return admin;

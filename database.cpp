@@ -22,13 +22,20 @@ void getAllData(vector<Admin> *adminList, vector<Member> *memberList, vector<Hou
     for (auto member : members)
     {
         tempMember = new Member(member["id"], member["name"], member["password"]);
-        tempHouse = new House(member["house_list"]["house_id"], member["house_list"]["address"], member["house_list"]["description"], 
-            member["house_list"]["cpd"], member["house_list"]["min_occupier_rating"], member["house_list"]["occupier_id"]);
-        tempMember->addHouse(tempHouse);
-            tempHouse->getPeriods().push_back(new Period(member["house_list"]["available_periods"]["start_date"], member["house_list"]["available_periods"]["end_date"])); 
-            tempHouse->getRatings().push_back(new Rating(member["house_list"]["rating"]["rating"], member["house_list"]["rating"]["comment"]));
-            tempHouse->getRequests().push_back(new Request(member["house_list"]["request_list"]["requester_id"], 
-            Period(member["house_list"]["request_list"]["period"]["start_date"], member["house_list"]["request_list"]["period"]["end_date"])));
+        for (auto house : member["house_list"]) {
+            tempHouse = new House(house["house_id"], house["address"], house["description"], 
+                house["cpd"], house["min_occupier_rating"], house["occupier_id"]);
+            tempMember->addHouse(tempHouse);
+            for (auto period : house["available_periods"]) 
+                tempHouse->getPeriods()->push_back(new Period(period["start_date"], period["end_date"])); 
+            for (auto rating : house["ratings"])
+                tempHouse->getRatings()->push_back(new Rating(rating["rating"], rating["comment"]));
+            for (auto request : house["request_list"])
+                tempHouse->getRequests()->push_back(new Request(request["requester_id"], 
+                Period(request["period"]["start_date"], request["period"]["end_date"])));
+        }
+        houseList->push_back(*tempHouse);
+        memberList->push_back(*tempMember);
     }
 }
 
@@ -53,21 +60,21 @@ void writeAllData(vector<Admin> *adminList, vector<Member> *memberList)
             members[i]["house_list"][j]["cpd"] = (*memberList)[i].getAllHouses()[j]->getCPD();
             members[i]["house_list"][j]["occupier_id"] = (*memberList)[i].getAllHouses()[j]->getOccupierID();
             members[i]["house_list"][j]["min_occupier_rating"] = (*memberList)[i].getAllHouses()[j]->getMinOccupierRating();
-            for (int k = 0 ; k < (*memberList)[i].getAllHouses()[j]->getRequests().size(); k ++) 
+            for (int k = 0 ; k < ((*memberList)[i].getAllHouses()[j]->getRequests())->size(); k ++) 
             {
-                members[i]["house_list"][j]["request_list"][k]["requester_id"] = (*memberList)[i].getAllHouses()[j]->getRequests()[k]->getRequesterID();            
-                members[i]["house_list"][j]["request_list"][k]["period"]["start_date"] = (*memberList)[i].getAllHouses()[j]->getRequests()[k]->getPeriod().getStartDate();            
-                members[i]["house_list"][j]["request_list"][k]["period"]["end_date"] = (*memberList)[i].getAllHouses()[j]->getRequests()[k]->getPeriod().getEndDate();            
+                members[i]["house_list"][j]["request_list"][k]["requester_id"] = (*(*memberList)[i].getAllHouses()[j]->getRequests())[k]->getRequesterID();            
+                members[i]["house_list"][j]["request_list"][k]["period"]["start_date"] = (*(*memberList)[i].getAllHouses()[j]->getRequests())[k]->getPeriod().getStartDate();            
+                members[i]["house_list"][j]["request_list"][k]["period"]["end_date"] = (*(*memberList)[i].getAllHouses()[j]->getRequests())[k]->getPeriod().getEndDate();            
             }
-            for (int k = 0 ; k < (*memberList)[i].getAllHouses()[j]->getRatings().size(); k ++) 
+            for (int k = 0 ; k < ((*memberList)[i].getAllHouses()[j]->getRatings())->size(); k ++) 
             {
-                members[i]["house_list"][j]["rating"][k]["rating"] = (*memberList)[i].getAllHouses()[j]->getRatings()[k]->getRating();            
-                members[i]["house_list"][j]["rating"][k]["comment"] = (*memberList)[i].getAllHouses()[j]->getRatings()[k]->getComment();            
+                members[i]["house_list"][j]["ratings"][k]["rating"] = (*(*memberList)[i].getAllHouses()[j]->getRatings())[k]->getRating();            
+                members[i]["house_list"][j]["ratings"][k]["comment"] = (*(*memberList)[i].getAllHouses()[j]->getRatings())[k]->getComment();            
             }
-            for (int k = 0 ; k < (*memberList)[i].getAllHouses()[j]->getPeriods().size(); k ++) 
+            for (int k = 0 ; k < ((*memberList)[i].getAllHouses()[j]->getPeriods())->size(); k ++) 
             {
-                members[i]["house_list"][j]["available_periods"][k]["start_date"] = (*memberList)[i].getAllHouses()[j]->getPeriods()[k]->getStartDate();            
-                members[i]["house_list"][j]["available_periods"][k]["end_date"] = (*memberList)[i].getAllHouses()[j]->getPeriods()[k]->getEndDate();            
+                members[i]["house_list"][j]["available_periods"][k]["start_date"] = (*(*memberList)[i].getAllHouses()[j]->getPeriods())[k]->getStartDate();            
+                members[i]["house_list"][j]["available_periods"][k]["end_date"] = (*(*memberList)[i].getAllHouses()[j]->getPeriods())[k]->getEndDate();            
             }
         }
     }

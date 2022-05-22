@@ -18,8 +18,6 @@ Account Member::getAccount()
     return *acc;
 }
 
-
-
 int Member::getCreadit()
 {
     return this->credits;
@@ -44,12 +42,11 @@ vector<House *> Member::getAllHouses()
     return this->houses;
 }
 
-void Member::viewPersonalInformation(){
-    cout << "User ID : " << this->getID() <<endl;
-    cout << "Average rating : " << this->getAverageSelfRating(this->getRatings())<<endl;
-     
+void Member::viewPersonalInformation()
+{
+    cout << "User ID : " << this->getID() << endl;
+    cout << "Average rating : " << this->getAverageSelfRating(this->getRatings()) << endl;
 }
-
 
 bool Member::createHouseRating(House *house)
 {
@@ -63,7 +60,7 @@ bool Member::createHouseRating(House *house)
         cin >> points;
         if (points < -10 || points > 10)
             return false;
-        house->getRatings().push_back(new Rating(points, comment));
+        house->getRatings()->push_back(new Rating(points, comment));
         return true;
     }
     return false;
@@ -71,7 +68,8 @@ bool Member::createHouseRating(House *house)
 
 bool Member::rateOccupier(Member *occupier)
 {
-    for (House* house : this->houses) {
+    for (House *house : this->houses)
+    {
         if (occupier != nullptr && house->getOccupierID() == occupier->getID())
         {
             double points;
@@ -96,7 +94,7 @@ void Member::createRequest(House *house)
     Period period;
     // Period period(startDate, endDate);
     cout << "Enter your ID";
-    house->getRequests().push_back(new Request(this->id, period));
+    house->getRequests()->push_back(new Request(this->id, period));
 }
 
 double Member::getAverageSelfRating(vector<Rating *> ratings)
@@ -126,11 +124,11 @@ void Member::listAvailableHouse()
 
 void Member::viewAllRequest(House *house)
 {
-    for (Request *request : house->getRequests())
+    for (Request *request : (*house->getRequests()))
     {
-        cout << "Requester ID : " << request->getRequesterID();
+        cout << "Requester ID : " << request->getRequesterID() << endl;
         cout << "Period : "
-             << "from" << request->getPeriod().getStartDate()
+             << "from " << request->getPeriod().getStartDate() << endl
              << " to " << request->getPeriod().getEndDate() << endl;
     }
 }

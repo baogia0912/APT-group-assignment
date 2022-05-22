@@ -48,6 +48,7 @@ void Guest::viewHouseDetails(vector<House> houseList)
         cout << "House Address : " << house.getAddress() << endl;
         cout << "Description : " << house.getDescription() << endl;
         cout << "Credit Per Day : " << house.getCPD() << endl;
+        cout << endl;
     }
 }
 #endif // !GUEST_CPP

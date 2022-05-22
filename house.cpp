@@ -41,10 +41,10 @@ void House::setAddress(string address) {
 }
 
 
-string House::getHouseID() {
+int House::getHouseID() {
     return this->houseID;
 }
-void House::setHouseID(string houseID) {
+void House::setHouseID(int houseID) {
     this->houseID = houseID;
 }
 
@@ -71,20 +71,20 @@ void House::setOccupierID(int occupierID) {
     this->occupierID = occupierID;
 }
 
-vector<Period *> House::getPeriods(){
-    return this->availablePeriods;
+vector<Period *> *House::getPeriods(){
+    return &this->availablePeriods;
 }
 void House::setPeriods(vector<Period *> periods){
     this->availablePeriods = periods;
 }
-vector<Rating *> House::getRatings(){
-    return this->ratings;
+vector<Rating *> *House::getRatings(){
+    return &this->ratings;
 }
 void House::setRatings(vector<Rating *> ratings){
     this->ratings = ratings;
 }
-vector<Request *> House::getRequests(){
-    return this->requests;
+vector<Request *> *House::getRequests(){
+    return &this->requests;
 }
 void House::setRatings(vector<Request *> requests){
     this->requests = requests;
