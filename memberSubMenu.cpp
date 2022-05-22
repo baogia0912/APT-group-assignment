@@ -52,36 +52,45 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
             {
                 if (option == "1")
                 {
-                    cout << *member;
+                    cout << *member << endl;
                 }
 
                 if (option == "2")
                 { // add house
-                    string address,descripion;
+                    string address, descripion;
                     double CPD;
-                    House *newHouse = new House (nextID(houses),address,descripion,CPD);
+                    House *newHouse = new House(nextID(houses), address, descripion, CPD);
                     houses->push_back(*newHouse);
                 }
                 if (option == "3")
-                {   
+                {   //search house;
                     string address;
-                    cout << "Enter an address";
+                    cout << "Enter a city you wanna search in: " << endl;
                     cin >> address;
-                    member->searchHouse(address);
+                    for (House house : *houses)
+                    {
+                        if (address == house.getAddress() && house.getCPD() < member->getCreadit() && house.getMinOccupierRating() < member->getAverageSelfRating())
+                            cout << house << endl;
+                    }
                 }
-                if (option == "4")
-                {   
-                    //request house;
-                    string startDate, endDate, address;
+                if (option == "6")
+                {
+                    // request house;
+                    string startDate, endDate;
+                    int houseID;
                     Period *tmpPeriod;
+                    cout << "Enter house ID you want to request " << endl;
+                    cin >> houseID;
+                    cout << "Enter the start date" << endl;
                     cin >> startDate;
+                    cout << "Enter the end date" << endl;
                     cin >> endDate;
-                    cin >> address;
+
                     tmpPeriod->setStartDate(startDate);
                     tmpPeriod->setEndDate(endDate);
                     for (int i = 0; i < houses->size(); i++)
                     {
-                        if (address == (*houses)[i].getAddress())
+                        if (houseID == (*houses)[i].getHouseID())
                         {
                             for (int j = 0; j < (*houses)[i].getPeriods()->size(); j++)
                             {
@@ -94,8 +103,8 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     }
                 }
                 if (option == "5")
-                {   
-                    //view request
+                {
+                    // view request
                     int id;
                     cout << "Enter ID of the house you want to view request " << endl;
                     cin >> id;
@@ -103,30 +112,32 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     {
                         if (house.getHouseID() == id)
                         {
-                            for (Rating *rating : *(house.getRatings()))
-                                cout << rating;
+                            for (Request *request : *(house.getRequests()))
+                                cout << request;
                         }
                     }
                 }
-                if (option == "6")
-                {
-                    // accept request
-                }
-                if (option == "7")
-                {
-                    // rate member's occupied house
-                }
-                if (option == "8")
-                {
-                    // rate the occupiers (owners)
-                    string username;
+                if (option == "4")
+                {   
+                    //create rating 
+                    string comment;
+                    double rating;
                     int id;
-                    cout << "";
-                    // rateOccupiedHouse()
-                }
-                if (option == "5")
-                {
-                    // manageHouseMenu(houseID);
+                    cout << "Choose the house ID " << endl;
+                    cin >> id;
+                    cout << "Enter your comment" << endl;
+                    cin >> comment;
+                    cout << "Enter your points" << endl;
+                    cin >> rating;
+                    Rating *newRating = new Rating(rating, comment);
+                    for (House house : *houses)
+                    {
+                        if ((house.getOccupierID() == member->getID()) &&
+                            house.getHouseID() == id)
+                        {
+                            house.getRatings()->push_back(newRating);
+                        }
+                    }
                 }
             }
         }

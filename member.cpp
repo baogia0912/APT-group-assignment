@@ -91,15 +91,14 @@ void Member::createRequest(House *house)
     house->getRequests()->push_back(new Request(this->id, period));
 }
 
-double Member::getAverageSelfRating(vector<Rating *> ratings)
+double Member::getAverageSelfRating()
 {
     double points;
     for (Rating *rate : ratings)
     {
         points += rate->getRating();
     }
-    this->selfRating = (points / ratings.size());
-    return points;
+    return points / ratings.size();
 }
 
 void Member::addCredit(int num)
