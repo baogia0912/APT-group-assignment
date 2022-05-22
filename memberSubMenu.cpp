@@ -63,7 +63,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     houses->push_back(*newHouse);
                 }
                 if (option == "3")
-                {   //search house;
+                { // search house;
                     string address;
                     cout << "Enter a city you wanna search in: " << endl;
                     cin >> address;
@@ -118,8 +118,8 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     }
                 }
                 if (option == "4")
-                {   
-                    //create rating 
+                {
+                    // create rating
                     string comment;
                     double rating;
                     int id;
@@ -139,6 +139,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                         }
                     }
                 }
+
             }
         }
     }
