@@ -3,24 +3,11 @@
 #include "guestSubMenu.cpp"
 #include "adminSubMenu.cpp"
 // #include "memberSubMenu.cpp"
-int option;
-vector<House> houses ;
+vector<House> houses;
 vector<Admin> admins;
 vector<Member> members;
 
-House house1 (5,"Binhthanh","nearCity",300);
-Admin am (1,"owen1","123");
-Member mem (2,"mai","54"); 
-Admin am2 (7,"owen2","123");
-
-Admin am3 (8,"owen3","123");
-
-Admin am4 (9,"owen4","123");
-
-
-
-
-int menuOption(int option) {
+string menuOption(string option) {
     cout << "===================================================== \n";
     cout << "              \t\tMENU \n";
     cout << "===================================================== \n";
@@ -37,42 +24,33 @@ int menuOption(int option) {
 
 void menu()
 {
-    
+    string option;
+    option = menuOption(option);
 
-    //getAllData(&admins,&members,&houses);
-    while (1)
+
+    getAllData(&admins,&members,&houses);
+    while (option == "1" || option == "2" || option == "3")
     {
-        option = menuOption(option);
-        switch (option)
-        {
-
-        case 1:
+        if (option == "1") {
             menuForGuest(logInAsGuest(), &members, &houses);            
-            break;
-        case 2:
+        }
+        if (option == "2") {
             // if (logInAsMember(members))
                 //  menuForMember();
             // Press any key to return the main menu
-            
-            break;
-        case 3:
-            houses.push_back(house1);
-            members.push_back(mem);
-            admins.push_back(am);
-            admins.push_back(am2);
-            admins.push_back(am3);
-            admins.push_back(am4);
-
-            menuForAdmin(logInAsAdmin(admins),&members,&houses);            
-            break;
-        default:
-            // Exit the program
-            cout << "===================================================== \n";
-            cout << "                \tPROGRAM ENDED \n";
-            cout << "===================================================== \n";
-            cout << "          Thank you so much for your love\n";
-            //writeAllData(&admins,&members);
-            exit(0);
         }
+        if (option == "3") {
+            // if (logInAsAdmin(admins))
+                //  menuForAdmin();
+            // Press any key to return the main menu
+        } 
+        option = menuOption(option);
     }
+    // Exit the program
+    cout << "===================================================== \n";
+    cout << "                \tPROGRAM ENDED \n";
+    cout << "===================================================== \n";
+    cout << "          Thank you so much for your love\n";
+    // writeAllData(&admins,&members);
+    exit(0);
 }

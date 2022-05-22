@@ -24,7 +24,6 @@ public:
     vector<House*> getAllHouses();
     bool createHouseRating(House *house);
     void createRequest(House *house);
-    void setCPD(int num, House *targetHouse);
     void addCredit(int num);
     double getAverageSelfRating(vector<Rating *> ratings);
     void listAvailableHouse();

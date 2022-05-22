@@ -9,6 +9,16 @@ Account::Account(string username, string password)
     this->password = password;
 };
 
+string Account::getPassword() {
+    return this->password;
+}
+string Account::getUsername() {
+    return this->username;
+}
+void Account::setUsername(string username) {
+    this->username = username;
+}
+
 bool Account::verifyPass(string password)
 {
     return this->password == password;

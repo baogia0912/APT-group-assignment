@@ -1,6 +1,6 @@
 #include "guest.cpp"
 
-int guestOptions(int option) {
+string guestOptions(string option) {
     cout << "===================================================== \n";
     cout << "              \t\tMENU  \n";
     cout << "===================================================== \n";
@@ -22,19 +22,17 @@ int guestOptions(int option) {
 }
 
 void menuForGuest(Guest* guest, vector<Member>* members, vector<House>* houses) {
-    int option;
-    while(1) {
-        option = guestOptions(option);
-        switch (option)
-        {
-        case 1:
-            if (guest->signUp(members) != nullptr) return;
-            break;
-        case 2:
-            guest->viewHouseDetails(*houses);
-            break;
-        default:
-            return;
+    string option;
+    option = guestOptions(option);
+
+    while(option == "1" || option == "2") {
+
+        if (option == "1") {
+            if (guest->signUp(members) != nullptr) break;
         }
+        if (option == "2") {
+            guest->viewHouseDetails(*houses);
+        }
+        option = guestOptions(option);
     }
 }

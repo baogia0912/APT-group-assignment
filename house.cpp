@@ -25,6 +25,52 @@ House::House(int houseID, string address, string description, int CPD, double mi
     this->requests = requests;
 }
 
+double House::getMinOccupierRating() {
+    return this->minOccupierRating;
+}
+void House::setMinOccupierRating(double minOccupierRating) {
+    this->minOccupierRating = minOccupierRating;
+}
+
+
+string House::getAddress() {
+    return this->address;
+}
+void House::setAddress(string address) {
+    this->address = address;
+}
+
+
+string House::getHouseID() {
+    return this->houseID;
+}
+void House::setHouseID(string houseID) {
+    this->houseID = houseID;
+}
+
+
+string House::getDescription() {
+    return this->description;
+}
+void House::setDescription(string description) {
+    this->description = description;
+}
+
+
+int House::getCPD() {
+    return this->CPD;
+}
+void House::setCPD(int CPD) {
+    this->CPD = CPD;
+}
+
+int House::getOccupierID() {
+    return this->occupierID;
+}
+void House::setOccupierID(int occupierID) {
+    this->occupierID = occupierID;
+}
+
 vector<Period *> House::getPeriods(){
     return this->availablePeriods;
 }

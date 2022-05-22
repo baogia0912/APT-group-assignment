@@ -39,7 +39,7 @@ Admin *logInAsAdmin(vector<Admin> admins)
     cin >> userName;
     for (Admin ad : admins)
     {
-        if (userName == ad.getAccount().username)
+        if (userName == ad.getAccount().getUsername())
             *admin = ad;
     }
     if (admin == nullptr)
