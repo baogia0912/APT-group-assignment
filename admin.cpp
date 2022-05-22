@@ -39,30 +39,33 @@ void Admin::viewAllMember(vector<Member> *members)
 
 void Admin::viewAllHouse(vector<House> *houseList)
 {
-    Member *mem;
-    for (House house : *houseList)
-    {
-        cout << house << endl;
-        for (Request *request : *house.getRequests())
-        {
-            cout << "Requester ID : " << request->getRequesterID() << endl;
-            cout << "Period : "
-                 << "from " << request->getPeriod().getStartDate() << endl
-                 << " to " << request->getPeriod().getEndDate() << endl;
-        }
-        cout << endl;
-        for (Rating *rating : *house.getRatings())
-        {
-            cout << "Rating : " << rating->getComment() << endl;
-            cout << "Comment : " << rating->getRating() << endl;
-        }
-        cout << endl;
-        for (Period *period : *house.getPeriods())
-        {
-            cout << "From " << period->getStartDate() << " to "
-                 << period->getEndDate() << endl;
-        }
+    // Member *mem;
+    // for (House house : *houseList)
+    // {
+    //     cout << house << endl;
+    //     for (Request *request : *house.getRequests())
+    //     {
+    //         cout << "Requester ID : " << request->getRequesterID() << endl;
+    //         cout << "Period : "
+    //              << "from " << request->getPeriod().getStartDate() << endl
+    //              << " to " << request->getPeriod().getEndDate() << endl;
+    //     }
+    //     cout << endl;
+    //     for (Rating *rating : *house.getRatings())
+    //     {
+    //         cout << "Rating : " << rating->getComment() << endl;
+    //         cout << "Comment : " << rating->getRating() << endl;
+    //     }
+    //     cout << endl;
+    //     for (Period *period : *house.getPeriods())
+    //     {
+    //         cout << "From " << period->getStartDate() << " to "
+    //              << period->getEndDate() << endl;
+    //     }
 
-        cout << endl;
+    //     cout << endl;
+    // }
+    for (House house : *houseList) {
+        cout << house;
     }
 }

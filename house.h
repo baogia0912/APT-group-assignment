@@ -38,8 +38,10 @@ public:
     vector<Period *> *getPeriods();
     void setPeriods(vector<Period *> periods);
     vector<Rating *> *getRatings();
+
     void setRatings(vector<Rating *> ratings);
     vector<Request *> *getRequests();
+    vector<Request *> overloadGetRequests();
     void setRatings(vector<Request *> requests);
 
     friend ostream &operator<<(ostream &os, const House &dt);

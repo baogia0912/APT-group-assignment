@@ -6,14 +6,16 @@ House::House()
 {
 }
 
-House::House(int houseID, string address,string description, int CPD) {
+House::House(int houseID, string address, string description, int CPD)
+{
     this->houseID = houseID;
     this->address = address;
     this->description = description;
     this->CPD = CPD;
 }
 
-House::House(int houseID, string address, string description, int CPD, double minOccupierRating, int occupierID) {
+House::House(int houseID, string address, string description, int CPD, double minOccupierRating, int occupierID)
+{
     this->houseID = houseID;
     this->address = address;
     this->description = description;
@@ -25,78 +27,98 @@ House::House(int houseID, string address, string description, int CPD, double mi
     this->requests = requests;
 }
 
-double House::getMinOccupierRating() {
+double House::getMinOccupierRating()
+{
     return this->minOccupierRating;
 }
-void House::setMinOccupierRating(double minOccupierRating) {
+void House::setMinOccupierRating(double minOccupierRating)
+{
     this->minOccupierRating = minOccupierRating;
 }
 
-
-string House::getAddress() {
+string House::getAddress()
+{
     return this->address;
 }
-void House::setAddress(string address) {
+void House::setAddress(string address)
+{
     this->address = address;
 }
 
-
-int House::getHouseID() {
+int House::getHouseID()
+{
     return this->houseID;
 }
-void House::setHouseID(int houseID) {
+void House::setHouseID(int houseID)
+{
     this->houseID = houseID;
 }
 
-
-string House::getDescription() {
+string House::getDescription()
+{
     return this->description;
 }
-void House::setDescription(string description) {
+void House::setDescription(string description)
+{
     this->description = description;
 }
 
-
-int House::getCPD() {
+int House::getCPD()
+{
     return this->CPD;
 }
-void House::setCPD(int CPD) {
+void House::setCPD(int CPD)
+{
     this->CPD = CPD;
 }
+vector<Request *> House::overloadGetRequests()
+{
+    return this->requests;
+};
 
-int House::getOccupierID() {
+int House::getOccupierID()
+{
     return this->occupierID;
 }
-void House::setOccupierID(int occupierID) {
+void House::setOccupierID(int occupierID)
+{
     this->occupierID = occupierID;
 }
 
-vector<Period *> *House::getPeriods(){
+vector<Period *> *House::getPeriods()
+{
     return &this->availablePeriods;
 }
-void House::setPeriods(vector<Period *> periods){
+void House::setPeriods(vector<Period *> periods)
+{
     this->availablePeriods = periods;
 }
-vector<Rating *> *House::getRatings(){
+vector<Rating *> *House::getRatings()
+{
     return &this->ratings;
 }
-void House::setRatings(vector<Rating *> ratings){
+void House::setRatings(vector<Rating *> ratings)
+{
     this->ratings = ratings;
 }
-vector<Request *> *House::getRequests(){
+vector<Request *> *House::getRequests()
+{
     return &this->requests;
 }
-void House::setRatings(vector<Request *> requests){
+void House::setRatings(vector<Request *> requests)
+{
     this->requests = requests;
 }
 
-double House::getHouseAvgRating(){
+double House::getHouseAvgRating()
+{
     int count = 0;
     double sum = 0;
-    for (Rating *rating : ratings) {
+    for (Rating *rating : ratings)
+    {
         sum += rating->getRating();
         count++;
     }
-    return sum/count;
+    return sum / count;
 }
 #endif // !HOUSE_CPP

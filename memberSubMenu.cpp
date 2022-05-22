@@ -25,7 +25,7 @@ string memberOptions(string option)
          << "2: Listing the Available house for being occupied.\n"
          << "3: Search the suitable houses.\n"
          << "4: Request to occupy a house.\n"
-         << "5: View the House Occupied.\n";
+         << "5: View the House requests.\n";
     cout << endl;
     cout << "Press any key to exit the program" << endl;
     cin >> option;
@@ -57,11 +57,53 @@ void menuForMember(Member *member, vector<Member> *members, vector<House> *house
         }
         if (option == "4")
         {
-
-            member->createRequest();
+            string startDate, endDate, address;
+            Period *tmpPeriod;
+            cin >> startDate;
+            cin >> endDate;
+            cin >> address;
+            tmpPeriod->setStartDate(startDate);
+            tmpPeriod->setEndDate(endDate);
+            for (int i = 0; i < houses->size(); i++)
+            {
+                if (address == (*houses)[i].getAddress())
+                {
+                    for (int j = 0; j < (*houses)[i].getPeriods()->size(); j++)
+                    {
+                        if ((*(*houses)[i].getPeriods())[j] == tmpPeriod)
+                        {
+                            member->createRequest(&(*houses)[i]);
+                        }
+                    }
+                }
+            }
         }
         if (option == "5")
         {
+            int id;
+            cout << "Enter ID of the house you want to view request " << endl;
+            cin >> id;
+            for (House house : *houses)
+            {
+                if (house.getHouseID() == id)
+                {
+                    for (Rating *rating : *(house.getRatings()))
+                        cout << rating;
+                }
+            }
         }
+        if (option == "6") {
+            //accept request
+        }
+        if (option == "7") {
+            //rate member's occupied house
+        }
+        if (option == "8") {
+            //rate the occupiers (owners)
+            string username;
+            int id;
+            cout << "";
+        }
+
     }
 }
