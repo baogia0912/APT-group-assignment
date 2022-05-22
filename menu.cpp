@@ -2,12 +2,13 @@
 #include "database.cpp"
 #include "guestSubMenu.cpp"
 #include "adminSubMenu.cpp"
-// #include "memberSubMenu.cpp"
+#include "memberSubMenu.cpp"
 vector<House> houses;
 vector<Admin> admins;
 vector<Member> members;
 
-string menuOption(string option) {
+string menuOption(string option)
+{
     cout << "===================================================== \n";
     cout << "              \t\tMENU \n";
     cout << "===================================================== \n";
@@ -27,23 +28,24 @@ void menu()
     string option;
     option = menuOption(option);
 
-
-    getAllData(&admins,&members,&houses);
+    getAllData(&admins, &members, &houses);
     while (option == "1" || option == "2" || option == "3")
     {
-        if (option == "1") {
-            menuForGuest(logInAsGuest(), &members, &houses);            
+        if (option == "1")
+        {
+            menuForGuest(logInAsGuest(), &members, &houses);
         }
-        if (option == "2") {
-            // if (logInAsMember(members))
-                //  menuForMember();
+        if (option == "2")
+        {
+
+            menuForMember(logInAsMember(members),&members,&houses);
+        }
+        if (option == "3")
+        {
+
+            menuForAdmin(logInAsAdmin(admins), &members, &houses);
             // Press any key to return the main menu
         }
-        if (option == "3") {
-            // if (logInAsAdmin(admins))
-                //  menuForAdmin();
-            // Press any key to return the main menu
-        } 
         option = menuOption(option);
     }
     // Exit the program

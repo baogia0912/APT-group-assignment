@@ -23,9 +23,7 @@ void Admin::viewAllMember(vector<Member> *members)
 {
     for (Member mem : *members)
     {
-        cout << "User ID : " << mem.getID() << endl
-             << "Creadits : " << mem.getCreadit() << endl
-             << "Rating : " << mem.getAverageSelfRating(mem.getRating()) << endl;
+        mem.viewPersonalInformation();
     }
 }
 
