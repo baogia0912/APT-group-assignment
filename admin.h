@@ -18,8 +18,8 @@ public:
 
     int getID();
 
-    void viewAllMember(vector<Account *> memberList);
-    void viewAllHouse(vector<House *> houseList);
+    void viewAllMember(vector<Member> *memberList);
+    void viewAllHouse(vector<House> *houseList);
 };
 
 #endif

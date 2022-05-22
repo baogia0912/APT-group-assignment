@@ -1,8 +1,9 @@
 #include "guest.cpp"
-
+#include "admin.h"
 using namespace std;
 
-Guest* logInAsGuest(){
+Guest *logInAsGuest()
+{
     return new Guest();
 }
 
@@ -29,24 +30,25 @@ Guest* logInAsGuest(){
 //         return nullptr;
 // }
 
-// Admin* logInAsAdmin(vector<Admin *> admins)
-// {
-//     Admin *admin;
-//     string userName;
-//     string password;
-//     cout << "Enter Username : " << endl;
-//     cin >> userName;
+Admin *logInAsAdmin(vector<Admin> admins)
+{
+    Admin *admin;
+    string userName;
+    string password;
+    cout << "Enter Username : " << endl;
+    cin >> userName;
+    for (Admin ad : admins)
+    {
+        if (userName == ad.getAccount().username)
+            *admin = ad;
+    }
+    if (admin == nullptr)
+        return admin;
 
-//     for (Admin *ad : admins)
-//     {
-//         if (userName == ad->getAccount().username) admin = ad;
-//     }
-//     if (admin == nullptr) return admin;
-
-//     cout << "Enter password : " << endl;
-//     cin >> password;
-//     if (admin->getAccount().verifyPass(password))
-//         return admin;
-//     else
-//         return nullptr;
-// }
+    cout << "Enter password : " << endl;
+    cin >> password;
+    if (admin->getAccount().verifyPass(password))
+        return admin;
+    else
+        return nullptr;
+}

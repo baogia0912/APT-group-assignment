@@ -32,6 +32,8 @@ public:
     bool acceptRequest(House *house, Request *request);
     bool rateOccupier(Member *occupier);
     void searchHouse(string address);
+    int getCreadit();
+    vector <Rating*> getRating();
 
     friend ostream &operator<<(ostream &os, const Member &mem);
 };

@@ -19,21 +19,23 @@ int Admin::getID()
     return this->id;
 }
 
-void Admin::viewAllMember(vector<Account *> members)
+void Admin::viewAllMember(vector<Member> *members)
 {
-    for (Account *mem : members)
+    for (Member mem : *members)
     {
-        cout << mem->username;
+        cout << "User ID : " << mem.getID() << endl
+             << "Creadits : " << mem.getCreadit() << endl
+             << "Rating : " << mem.getAverageSelfRating(mem.getRating()) << endl;
     }
 }
 
-void Admin::viewAllHouse(vector<House *> houseList)
+void Admin::viewAllHouse(vector<House> *houseList)
 {
     Member *mem;
-    for (House *house : houseList)
+    for (House house : *houseList)
     {
         cout << house << endl;
-        mem->viewAllRequest(house);
+        mem->viewAllRequest(&house);
         cout << endl;
     }
 }

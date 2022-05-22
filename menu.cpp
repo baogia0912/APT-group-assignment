@@ -1,12 +1,24 @@
 #include "login.cpp"
 #include "database.cpp"
 #include "guestSubMenu.cpp"
-// #include "adminSubMenu.cpp"
+#include "adminSubMenu.cpp"
 // #include "memberSubMenu.cpp"
 int option;
-vector<House> houses;
+vector<House> houses ;
 vector<Admin> admins;
 vector<Member> members;
+
+House house1 (5,"Binhthanh","nearCity",300);
+Admin am (1,"owen1","123");
+Member mem (2,"mai","54"); 
+Admin am2 (7,"owen2","123");
+
+Admin am3 (8,"owen3","123");
+
+Admin am4 (9,"owen4","123");
+
+
+
 
 int menuOption(int option) {
     cout << "===================================================== \n";
@@ -27,7 +39,7 @@ void menu()
 {
     
 
-    getAllData(&admins,&members,&houses);
+    //getAllData(&admins,&members,&houses);
     while (1)
     {
         option = menuOption(option);
@@ -44,10 +56,14 @@ void menu()
             
             break;
         case 3:
-            // if (logInAsAdmin(admins))
-                //  menuForAdmin();
-            // Press any key to return the main menu
-            
+            houses.push_back(house1);
+            members.push_back(mem);
+            admins.push_back(am);
+            admins.push_back(am2);
+            admins.push_back(am3);
+            admins.push_back(am4);
+
+            menuForAdmin(logInAsAdmin(admins),&members,&houses);            
             break;
         default:
             // Exit the program
@@ -55,7 +71,7 @@ void menu()
             cout << "                \tPROGRAM ENDED \n";
             cout << "===================================================== \n";
             cout << "          Thank you so much for your love\n";
-            writeAllData(&admins,&members);
+            //writeAllData(&admins,&members);
             exit(0);
         }
     }

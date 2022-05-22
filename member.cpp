@@ -18,6 +18,15 @@ Account Member::getAccount()
     return *acc;
 }
 
+int Member::getCreadit()
+{
+    return this->credits;
+};
+vector<Rating *> Member::getRating()
+{
+    return this->ratings;
+};
+
 int Member::getID()
 {
     return id;
@@ -28,7 +37,8 @@ void Member::addHouse(House *house)
     this->houses.push_back(house);
 }
 
-vector<House*> Member::getAllHouses() {
+vector<House *> Member::getAllHouses()
+{
     return this->houses;
 }
 
@@ -58,7 +68,8 @@ bool Member::createHouseRating(House *house)
         cin >> comment;
         cout << "Rating(-10 -> +10): ";
         cin >> points;
-        if (points < -10 || points > 10) return false;
+        if (points < -10 || points > 10)
+            return false;
         house->getRatings().push_back(new Rating(points, comment));
         return true;
     }
@@ -67,7 +78,8 @@ bool Member::createHouseRating(House *house)
 
 bool Member::rateOccupier(Member *occupier)
 {
-    for (House* house : this->houses) {
+    for (House *house : this->houses)
+    {
         if (occupier != nullptr && house->occupierID == occupier->getID())
         {
             double points;
@@ -76,11 +88,11 @@ bool Member::rateOccupier(Member *occupier)
             cin >> comment;
             cout << "Rating(-10 -> +10): ";
             cin >> points;
-            if (points < -10 || points > 10) return false;
+            if (points < -10 || points > 10)
+                return false;
             Rating *rate = new Rating(points, comment);
             occupier->ratings.push_back(rate);
             return true;
-            
         }
     }
     return false;
@@ -153,6 +165,5 @@ void Member::searchHouse(string address)
         }
     }
 }
-
 
 #endif
