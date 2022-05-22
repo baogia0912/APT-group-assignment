@@ -25,7 +25,7 @@ public:
     bool createHouseRating(House *house);
     void createRequest(House *house);
     void addCredit(int num);
-    double getAverageSelfRating(vector<Rating *> ratings);
+    double getAverageSelfRating();
     void listAvailableHouse();
     void viewAllRequest(House *house);
     bool acceptRequest(House *house, Request *request);

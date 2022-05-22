@@ -51,7 +51,7 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
             {
                 if (option == "1")
                 {
-                    cout << *member;
+                    cout << *member << endl;
                 }
 
                 if (option == "2")
@@ -59,15 +59,23 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                     // member->listAvailableHouse();
                 }
                 if (option == "3")
-                {
-                    // string address;
-                    // cout << "Enter an address";
-                    // cin >> address;
-                    // member->searchHouse(address);
+                {   
+                    string address;
+                    cout << "Enter a city you wanna search in: " << endl;
+                    cin >> address;
+                    for (House house : *houses) {
+                        if (address == house.getAddress() && house.getCPD() < member->getCreadit() 
+                            && house.getMinOccupierRating() < member->getAverageSelfRating())
+                            cout << house << endl;
+                    }
                 }
                 if (option == "4")
                 {
-                    // rateOccupiedHouse()
+                    for (House house : *houses) {
+                        if (house.getOccupierID() == member->getID()) {
+                            
+                        }
+                    }
                 }
                 if (option == "5")
                 {
