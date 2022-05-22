@@ -5,12 +5,33 @@
         "password": "12345",
         "house_list": [
             {
-                "house_id": "1",
+                "house_id": 1,
                 "address": "sdvfweegfewrf",
                 "description": "wefefwefqef",
                 "cpd": 1,
                 "occupier_id": 5,
-                "min_occupier_rating": 3.5
+                "min_occupier_rating": 3.5,
+                "available_periods": [
+                    {
+                        "start_date": "2022-05-20",
+                        "end_date": "2022-05-22"
+                    }
+                ],
+                "ratings": [
+                    {
+                        "rating": 5,
+                        "comment": "wwgvaergaer"
+                    }
+                ],
+                "request_list": [
+                    {
+                        "requester_id": 2,
+                        "period": {
+                            "start_date": "2022-05-20",
+                            "end_date": "2022-05-22"
+                        }
+                    }
+                ]
             }
         ]
     },
@@ -20,42 +41,33 @@
         "password": "12345",
         "house_list": [
             {
-                "house_id": "2",
+                "house_id": 2,
                 "address": "sdvfweegfewrf",
                 "description": "wefefwefqef",
                 "cpd": 1,
                 "occupier_id": 5,
-                "min_occupier_rating": 3.5
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "name": "kiet",
-        "password": "12345",
-        "house_list": [
-            {
-                "house_id": "3",
-                "address": "sdvfweegfewrf",
-                "description": "wefefwefqef",
-                "cpd": 1,
-                "occupier_id": 5,
-                "min_occupier_rating": 3.5
-            }
-        ]
-    },
-    {
-        "id": 4,
-        "name": "hoang",
-        "password": "12345",
-        "house_list": [
-            {
-                "house_id": "4",
-                "address": "sdvfweegfewrf",
-                "description": "wefefwefqef",
-                "cpd": 1,
-                "occupier_id": 5,
-                "min_occupier_rating": 3.5
+                "min_occupier_rating": 3.5,
+                "available_periods": [
+                    {
+                        "start_date": "2022-05-20",
+                        "end_date": "2022-05-22"
+                    }
+                ],
+                "ratings": [
+                    {
+                        "rating": 5,
+                        "comment": "wwgvaergaer"
+                    }
+                ],
+                "request_list": [
+                    {
+                        "requester_id": 1,
+                        "period": {
+                            "start_date": "2022-05-20",
+                            "end_date": "2022-05-22"
+                        }
+                    }
+                ]
             }
         ]
     }

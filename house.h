@@ -11,7 +11,7 @@ private:
     vector<Request *> requests;
     double minOccupierRating;
     string address;
-    string houseID;
+    int houseID;
     string description;
     int CPD;
     int occupierID;
@@ -26,8 +26,8 @@ public:
     void setMinOccupierRating(double minOccupierRating);
     string getAddress();
     void setAddress(string address);
-    string getHouseID();
-    void setHouseID(string houseID);
+    int getHouseID();
+    void setHouseID(int houseID);
     string getDescription();
     void setDescription(string description);
     int getCPD();
@@ -35,11 +35,11 @@ public:
     int getOccupierID();
     void setOccupierID(int occupierID);
 
-    vector<Period *> getPeriods();
+    vector<Period *> *getPeriods();
     void setPeriods(vector<Period *> periods);
-    vector<Rating *> getRatings();
+    vector<Rating *> *getRatings();
     void setRatings(vector<Rating *> ratings);
-    vector<Request *> getRequests();
+    vector<Request *> *getRequests();
     void setRatings(vector<Request *> requests);
 
     friend ostream &operator<<(ostream &os, const House &dt);

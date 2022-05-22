@@ -25,10 +25,9 @@ string menuOption(string option) {
 void menu()
 {
     string option;
-    option = menuOption(option);
-
-
     getAllData(&admins,&members,&houses);
+    writeAllData(&admins,&members);
+    option = menuOption(option);
     while (option == "1" || option == "2" || option == "3")
     {
         if (option == "1") {
@@ -51,6 +50,5 @@ void menu()
     cout << "                \tPROGRAM ENDED \n";
     cout << "===================================================== \n";
     cout << "          Thank you so much for your love\n";
-    // writeAllData(&admins,&members);
     exit(0);
 }

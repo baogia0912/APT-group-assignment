@@ -43,7 +43,7 @@ bool Member::createHouseRating(House *house)
         cout << "Rating(-10 -> +10): ";
         cin >> points;
         if (points < -10 || points > 10) return false;
-        house->getRatings().push_back(new Rating(points, comment));
+        house->getRatings()->push_back(new Rating(points, comment));
         return true;
     }
     return false;
@@ -76,7 +76,7 @@ void Member::createRequest(House *house)
     Period period;
     // Period period(startDate, endDate);
     cout << "Enter your ID";
-    house->getRequests().push_back(new Request(this->id, period));
+    house->getRequests()->push_back(new Request(this->id, period));
 }
 
 double Member::getAverageSelfRating(vector<Rating *> ratings)
@@ -106,7 +106,7 @@ void Member::listAvailableHouse()
 
 void Member::viewAllRequest(House *house)
 {
-    for (Request *request : house->getRequests())
+    for (Request *request : (*house->getRequests()))
     {
         cout << "Requester ID : " << request->getRequesterID();
         cout << "Period : "
