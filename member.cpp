@@ -130,10 +130,16 @@ bool Member::acceptRequest(House *house, Request *request)
 {
     if (!house->getOccupierID())
     {
-        house->setOccupierID(request->getRequesterID());
-        return true;
+        for (int i = 0; i < house->overloadGetRequests().size(); i++)
+        {
+            if (request != house->overloadGetRequests()[i])
+            {
+                house->overloadGetRequests().erase(house->overloadGetRequests().begin(), house->overloadGetRequests().begin() + i);
+                house->setOccupierID(request->getRequesterID());
+            }
+        }
     }
-    return false;
+    return true;
 }
 
 void Member::searchHouse(string address)
