@@ -17,5 +17,13 @@ public:
     void setRating(double rating);
     string getComment();
     void setComment(string comment);
+    friend ostream &operator<<(ostream &os, const Rating &dt);
+
 };
+
+ostream &operator<<(ostream &os, const Rating &dt)
+{
+    os << "Rating : " << dt.rating << endl
+       << "Comment : " << dt.comment << endl;
+}
 #endif
