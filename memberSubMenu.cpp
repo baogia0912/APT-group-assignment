@@ -102,10 +102,10 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                             }
                         }
                     }
-                }       
+                }
                 if (option == "5")
                 {
-                
+
                     // view request
                     int id;
                     cout << "Enter ID of the house you want to view request " << endl;
@@ -141,7 +141,31 @@ void menuForMember(int member_id, vector<Member> *members, vector<House> *houses
                         }
                     }
                 }
-            // enter house id  -> add rating for occupy 
+                // enter house id  -> add rating for occupy
+                if (option == "7")
+                {
+                    int id;
+                    string comment;
+                    double rating;
+                    cout << "Enter house id of your occupied house " << endl;
+                    cout << "Enter your comment for the occupier" << endl;
+                    cin >> comment;
+                    cout << "Enter the rate" << endl;
+                    Rating *newRating = new Rating(rating, comment);
+                    for (House house : *houses)
+                    {
+                        if (house.getHouseID() == id && house.getOccupierID())
+                        {
+                            for (Member member : *members)
+                            {
+                                if (house.getOccupierID() == member.getID())
+                                {
+                                    member.getRatings().push_back(newRating);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
